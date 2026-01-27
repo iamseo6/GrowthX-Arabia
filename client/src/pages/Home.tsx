@@ -23,7 +23,7 @@ export default function Home() {
       
       <footer className="py-8 border-t border-white/10 bg-black/50 text-center text-sm text-muted-foreground">
         <div className="container mx-auto px-4">
-          <p>© 2024 GrowthX Arabia. All rights reserved.</p>
+          <p>© 2026 GrowthX Arabia. All rights reserved.</p>
         </div>
       </footer>
     </div>
