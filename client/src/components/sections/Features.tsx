@@ -3,7 +3,7 @@ import { CheckCircle2 } from "lucide-react";
 
 export function Features() {
   return (
-    <section className="py-24 relative bg-black/40">
+    <section id="features" className="py-24 relative bg-black/40">
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
       
       <div className="container mx-auto px-4 relative z-10">
