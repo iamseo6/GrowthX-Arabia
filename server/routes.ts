@@ -27,5 +27,15 @@ export async function registerRoutes(
     }
   });
 
+  app.get("/api/contact", async (_req, res) => {
+    try {
+      const submissions = await storage.getContactSubmissions();
+      return res.json(submissions);
+    } catch (error) {
+      console.error("Error fetching contact submissions:", error);
+      return res.status(500).json({ error: "Failed to fetch submissions" });
+    }
+  });
+
   return httpServer;
 }
