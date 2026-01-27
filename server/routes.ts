@@ -10,15 +10,18 @@ export async function registerRoutes(
 ): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
+      console.log("Received contact submission request body:", req.body);
       const validationResult = insertContactSubmissionSchema.safeParse(req.body);
       
       if (!validationResult.success) {
+        console.error("Validation failed:", validationResult.error);
         return res.status(400).json({
           error: fromError(validationResult.error).toString(),
         });
       }
 
       const submission = await storage.createContactSubmission(validationResult.data);
+      console.log("Successfully saved submission:", submission);
       
       return res.status(201).json(submission);
     } catch (error) {
