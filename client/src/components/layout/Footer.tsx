@@ -36,7 +36,6 @@ export function Footer() {
     <footer className="bg-black/80 border-t border-white/10 pt-20 pb-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Brand Section */}
           <div className="space-y-6">
             <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-2xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent inline-block">
               GrowthX Arabia
@@ -58,7 +57,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="space-y-6">
               <h4 className="text-white font-heading font-bold text-lg">{title}</h4>
@@ -77,7 +75,6 @@ export function Footer() {
             </div>
           ))}
 
-          {/* Contact Section */}
           <div className="space-y-6">
             <h4 className="text-white font-heading font-bold text-lg">Contact Us</h4>
             <ul className="space-y-4">
@@ -97,7 +94,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-muted-foreground text-xs">
             © {currentYear} GrowthX Arabia. All rights reserved. Built for the future of the Middle East.

@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
@@ -21,11 +22,7 @@ export default function Home() {
         <Contact />
       </main>
       
-      <footer className="py-8 border-t border-white/10 bg-black/50 text-center text-sm text-muted-foreground">
-        <div className="container mx-auto px-4">
-          <p>© 2026 GrowthX Arabia. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
