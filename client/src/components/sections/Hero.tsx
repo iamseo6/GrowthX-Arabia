@@ -40,13 +40,17 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-md px-8 h-14 rounded-xl">
-              Start Automating
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white/10 text-foreground hover:bg-white/5 font-medium text-md px-8 h-14 rounded-xl">
-              View Case Studies
-            </Button>
+            <a href="#contact">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-md px-8 h-14 rounded-xl w-full sm:w-auto">
+                Start Automating
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
+            <a href="#features">
+              <Button size="lg" variant="outline" className="border-white/10 text-foreground hover:bg-white/5 font-medium text-md px-8 h-14 rounded-xl w-full sm:w-auto">
+                View Case Studies
+              </Button>
+            </a>
           </div>
 
           <div className="mt-12 flex items-center gap-8 text-muted-foreground/50">
