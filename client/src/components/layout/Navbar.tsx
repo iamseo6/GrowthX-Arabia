@@ -14,7 +14,7 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/5 bg-background/80"
     >
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+        <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-2xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent cursor-pointer">
           GrowthX Arabia
         </Link>
 
