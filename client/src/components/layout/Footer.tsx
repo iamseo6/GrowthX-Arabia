@@ -19,9 +19,9 @@ export function Footer() {
       { name: "Data Analytics", href: "#services" },
     ],
     Legal: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Cookie Policy", href: "#" },
+      { name: "Privacy Policy", href: "/privacy-policy" },
+      { name: "Terms of Service", href: "/terms-of-service" },
+      { name: "Cookie Policy", href: "/cookie-policy" },
     ],
   };
 
@@ -62,14 +62,14 @@ export function Footer() {
               <h4 className="text-white font-heading font-bold text-lg">{title}</h4>
               <ul className="space-y-4">
                 {links.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-muted-foreground hover:text-primary text-sm transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                >
+                  {link.name}
+                </Link>
+              </li>
                 ))}
               </ul>
             </div>
