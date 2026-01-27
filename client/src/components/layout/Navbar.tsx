@@ -29,9 +29,11 @@ export function Navbar() {
               {item}
             </a>
           ))}
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
-            Get Started
-          </Button>
+          <a href="#contact">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
+              Get Started
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -61,9 +63,11 @@ export function Navbar() {
                 {item}
               </a>
             ))}
-            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
-              Get Started
-            </Button>
+            <a href="#contact" className="w-full" onClick={() => setIsOpen(false)}>
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
+                Get Started
+              </Button>
+            </a>
           </div>
         </motion.div>
       )}
