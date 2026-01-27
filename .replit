@@ -46,3 +46,9 @@ waitForPort = 5000
 [agent]
 mockupState = "FULLSTACK"
 integrations = ["javascript_database:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+ADMIN_USERNAME = "GrowthXadmin"
+ADMIN_PASSWORD = "Z7!qM9@Lr#4F^Kp2"

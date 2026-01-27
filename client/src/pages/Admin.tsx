@@ -1,10 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { ContactSubmission } from "@shared/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Loader2 } from "lucide-react";
+import { Loader2, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
+import { Button } from "@/components/ui/button";
 
 export default function AdminPage() {
+  const { logoutMutation } = useAuth();
   const { data: submissions, isLoading, error } = useQuery<ContactSubmission[]>({
     queryKey: ["/api/contact"],
   });
@@ -29,8 +32,18 @@ export default function AdminPage() {
     <div className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-4">
         <Card className="glass-card border-white/10 bg-card/50 backdrop-blur-xl">
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle className="text-3xl font-heading font-bold text-white">Contact Submissions</CardTitle>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => logoutMutation.mutate()}
+              disabled={logoutMutation.isPending}
+              className="border-white/10 hover:bg-white/5"
+            >
+              <LogOut className="h-4 w-4 mr-2" />
+              Logout
+            </Button>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">

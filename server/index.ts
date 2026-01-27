@@ -3,6 +3,8 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import { setupAuth } from "./auth";
+import { storage } from "./storage";
+import bcrypt from "bcryptjs";
 
 const app = express();
 app.use(express.json());
@@ -50,6 +52,22 @@ app.use((req, res, next) => {
 (async () => {
   const httpServer = createServer(app);
   await registerRoutes(httpServer, app);
+
+  // Seed admin user
+  const adminUsername = process.env.ADMIN_USERNAME;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  
+  if (adminUsername && adminPassword) {
+    const existingAdmin = await storage.getUserByUsername(adminUsername);
+    if (!existingAdmin) {
+      const hashedPassword = await bcrypt.hash(adminPassword, 10);
+      await storage.createUser({
+        username: adminUsername,
+        password: hashedPassword,
+      });
+      log(`Admin user '${adminUsername}' created.`);
+    }
+  }
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
