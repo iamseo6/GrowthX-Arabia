@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { fromError } from "zod-validation-error";
+import { isAuthenticated } from "./auth";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -30,7 +31,7 @@ export async function registerRoutes(
     }
   });
 
-  app.get("/api/contact", async (_req, res) => {
+  app.get("/api/contact", isAuthenticated, async (_req, res) => {
     try {
       const submissions = await storage.getContactSubmissions();
       return res.json(submissions);
