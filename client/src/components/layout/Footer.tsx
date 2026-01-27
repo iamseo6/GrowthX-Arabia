@@ -43,18 +43,20 @@ export function Footer() {
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               Pioneering AI automation in the Middle East. We help businesses scale through intelligent digital transformation and cutting-edge automation solutions.
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+          <div className="flex gap-4">
+            {socialLinks.map((social) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                aria-label={social.label}
+              >
+                <social.icon className="h-5 w-5" />
+              </motion.a>
+            ))}
+          </div>
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
@@ -64,19 +66,27 @@ export function Footer() {
                 {links.map((link) => (
                   <li key={link.name}>
                     {link.href.startsWith("#") ? (
-                      <a
+                      <motion.a
+                        whileHover={{ x: 4, color: "var(--primary)" }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         href={link.href}
-                        className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                        className="text-muted-foreground text-sm transition-colors inline-block"
                       >
                         {link.name}
-                      </a>
+                      </motion.a>
                     ) : (
-                      <Link
-                        href={link.href}
-                        className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                      <motion.div
+                        whileHover={{ x: 4, color: "var(--primary)" }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="inline-block"
                       >
-                        {link.name}
-                      </Link>
+                        <Link
+                          href={link.href}
+                          className="text-muted-foreground text-sm transition-colors"
+                        >
+                          {link.name}
+                        </Link>
+                      </motion.div>
                     )}
                   </li>
                 ))}
