@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 import connectPgSimple from "connect-pg-simple";
 import { storage } from "./storage";
 import { type User } from "@shared/schema";
-import { db } from "./db";
+import { pool } from "./db";
 
 declare global {
   namespace Express {
@@ -22,9 +22,7 @@ export function setupAuth(app: express.Express) {
   app.use(
     session({
       store: new PostgresStore({
-        conObject: {
-          connectionString: process.env.DATABASE_URL,
-        },
+        pool,
         createTableIfMissing: true,
       }),
       secret: process.env.SESSION_SECRET || "growthx-secret",
