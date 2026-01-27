@@ -7,6 +7,7 @@ import { CaseStudies } from "@/components/sections/CaseStudies";
 import { About } from "@/components/sections/About";
 import { Features } from "@/components/sections/Features";
 import { Contact } from "@/components/sections/Contact";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       </main>
       
       <Footer />
+      <BackToTop />
     </div>
   );
 }

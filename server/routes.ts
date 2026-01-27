@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactSubmissionSchema } from "@shared/schema";
+import { insertContactSubmissionSchema, insertNewsletterSchema } from "@shared/schema";
 import { fromError } from "zod-validation-error";
 import { isAuthenticated } from "./auth";
 
@@ -38,6 +38,23 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error fetching contact submissions:", error);
       return res.status(500).json({ error: "Failed to fetch submissions" });
+    }
+  });
+
+  app.post("/api/newsletter", async (req, res) => {
+    try {
+      const validationResult = insertNewsletterSchema.safeParse(req.body);
+      if (!validationResult.success) {
+        return res.status(400).json({ error: fromError(validationResult.error).toString() });
+      }
+      const subscriber = await storage.createNewsletterSubscriber(validationResult.data);
+      return res.status(201).json(subscriber);
+    } catch (error: any) {
+      if (error.code === '23505') { // Unique constraint violation
+        return res.status(409).json({ error: "Email already subscribed" });
+      }
+      console.error("Newsletter error:", error);
+      return res.status(500).json({ error: "Failed to subscribe" });
     }
   });
 

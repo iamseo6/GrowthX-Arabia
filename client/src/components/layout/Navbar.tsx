@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import { Globe } from "lucide-react";
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [lang, setLang] = useState("EN");
 
   return (
     <motion.nav 
@@ -29,11 +32,23 @@ export function Navbar() {
               {item}
             </a>
           ))}
-          <a href="#contact">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
-              Get Started
+          
+          <div className="flex items-center gap-4 pl-4 border-l border-white/10">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setLang(lang === "EN" ? "AR" : "EN")}
+              className="text-xs font-bold flex items-center gap-2 hover:bg-white/5"
+            >
+              <Globe className="h-4 w-4" />
+              {lang}
             </Button>
-          </a>
+            <a href="#contact">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
+                Get Started
+              </Button>
+            </a>
+          </div>
         </div>
 
         {/* Mobile Menu Toggle */}

@@ -1,9 +1,43 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 export function Footer() {
   const currentYear = 2026;
+  const { toast } = useToast();
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+
+  const newsletterMutation = useMutation({
+    mutationFn: async (email: string) => {
+      const res = await apiRequest("POST", "/api/newsletter", { email });
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Subscribed!",
+        description: "Thank you for joining our newsletter.",
+      });
+      setNewsletterEmail("");
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newsletterEmail) {
+      newsletterMutation.mutate(newsletterEmail);
+    }
+  };
 
   const footerLinks = {
     Company: [
@@ -22,6 +56,7 @@ export function Footer() {
       { name: "Privacy Policy", href: "/privacy-policy" },
       { name: "Terms of Service", href: "/terms-of-service" },
       { name: "Cookie Policy", href: "/cookie-policy" },
+      { name: "Sitemap", href: "/sitemap" },
     ],
   };
 
