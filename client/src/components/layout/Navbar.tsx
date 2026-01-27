@@ -20,10 +20,10 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {["Services", "Process", "About", "Contact"].map((item) => (
+          {["Services", "Process", "Case Studies", "About", "Contact"].map((item) => (
             <a 
               key={item} 
-              href={`#${item.toLowerCase()}`}
+              href={`#${item.toLowerCase().replace(" ", "-")}`}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {item}
@@ -53,10 +53,10 @@ export function Navbar() {
           className="md:hidden glass-card border-t border-white/5"
         >
           <div className="flex flex-col p-4 gap-4">
-            {["Services", "Process", "About", "Contact"].map((item) => (
+            {["Services", "Process", "Case Studies", "About", "Contact"].map((item) => (
               <a 
                 key={item} 
-                href={`#${item.toLowerCase()}`}
+                href={`#${item.toLowerCase().replace(" ", "-")}`}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
