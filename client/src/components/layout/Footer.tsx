@@ -62,14 +62,23 @@ export function Footer() {
               <h4 className="text-white font-heading font-bold text-lg">{title}</h4>
               <ul className="space-y-4">
                 {links.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="text-muted-foreground hover:text-primary text-sm transition-colors"
-                >
-                  {link.name}
-                </Link>
-              </li>
+                  <li key={link.name}>
+                    {link.href.startsWith("#") ? (
+                      <a
+                        href={link.href}
+                        className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
