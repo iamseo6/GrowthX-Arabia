@@ -52,6 +52,7 @@ export default function AdminPage() {
                   <TableRow className="border-white/10 hover:bg-white/5">
                     <TableHead className="text-muted-foreground font-semibold">Name</TableHead>
                     <TableHead className="text-muted-foreground font-semibold">Email</TableHead>
+                    <TableHead className="text-muted-foreground font-semibold">Website</TableHead>
                     <TableHead className="text-muted-foreground font-semibold">Message</TableHead>
                     <TableHead className="text-muted-foreground font-semibold text-right">Date</TableHead>
                   </TableRow>
@@ -63,6 +64,15 @@ export default function AdminPage() {
                         {submission.firstName} {submission.lastName}
                       </TableCell>
                       <TableCell className="text-muted-foreground">{submission.email}</TableCell>
+                      <TableCell className="text-muted-foreground">
+                        {submission.website ? (
+                          <a href={submission.website} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                            {submission.website.replace(/^https?:\/\//, '')}
+                          </a>
+                        ) : (
+                          <span className="text-muted-foreground/50">-</span>
+                        )}
+                      </TableCell>
                       <TableCell className="text-muted-foreground max-w-md">
                         <p className="line-clamp-2">{submission.message}</p>
                       </TableCell>
@@ -77,7 +87,7 @@ export default function AdminPage() {
                   ))}
                   {(!submissions || submissions.length === 0) && (
                     <TableRow>
-                      <TableCell colSpan={4} className="text-center py-20 text-muted-foreground">
+                      <TableCell colSpan={5} className="text-center py-20 text-muted-foreground">
                         <div className="flex flex-col items-center gap-2">
                           <p className="text-lg font-medium">No submissions yet</p>
                           <p className="text-sm">New leads will appear here automatically</p>

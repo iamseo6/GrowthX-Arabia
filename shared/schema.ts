@@ -22,6 +22,7 @@ export const contactSubmissions = pgTable("contact_submissions", {
   firstName: text("first_name").notNull(),
   lastName: text("last_name").notNull(),
   email: text("email").notNull(),
+  website: text("website"),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });

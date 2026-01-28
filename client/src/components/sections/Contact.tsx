@@ -18,6 +18,7 @@ export function Contact() {
       firstName: "",
       lastName: "",
       email: "",
+      website: "",
       message: "",
     },
   });
@@ -104,18 +105,33 @@ export function Contact() {
                   </div>
                 </div>
                 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Email</label>
-                  <Input 
-                    {...form.register("email")}
-                    type="email" 
-                    placeholder="john@company.com" 
-                    className="bg-white/5 border-white/10 h-12"
-                    data-testid="input-email" 
-                  />
-                  {form.formState.errors.email && (
-                    <p className="text-xs text-destructive">{form.formState.errors.email.message}</p>
-                  )}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Email</label>
+                    <Input 
+                      {...form.register("email")}
+                      type="email" 
+                      placeholder="john@company.com" 
+                      className="bg-white/5 border-white/10 h-12"
+                      data-testid="input-email" 
+                    />
+                    {form.formState.errors.email && (
+                      <p className="text-xs text-destructive">{form.formState.errors.email.message}</p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Website (optional)</label>
+                    <Input 
+                      {...form.register("website")}
+                      type="url" 
+                      placeholder="https://yourcompany.com" 
+                      className="bg-white/5 border-white/10 h-12"
+                      data-testid="input-website" 
+                    />
+                    {form.formState.errors.website && (
+                      <p className="text-xs text-destructive">{form.formState.errors.website.message}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div className="space-y-2">
