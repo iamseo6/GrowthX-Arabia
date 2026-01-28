@@ -13,6 +13,9 @@ import { useLocation } from "wouter";
 export default function AuthPage() {
   const { user, loginMutation } = useAuth();
   const [, setLocation] = useLocation();
+  const form = useForm<InsertUser>({
+    resolver: zodResolver(insertUserSchema),
+  });
 
   useEffect(() => {
     if (user) {
@@ -23,10 +26,6 @@ export default function AuthPage() {
   if (user) {
     return null;
   }
-
-  const form = useForm<InsertUser>({
-    resolver: zodResolver(insertUserSchema),
-  });
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
