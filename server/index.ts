@@ -7,6 +7,10 @@ import { storage } from "./storage";
 import bcrypt from "bcryptjs";
 
 const app = express();
+
+// Trust proxy for production (Replit runs behind a reverse proxy)
+app.set("trust proxy", 1);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
