@@ -52,3 +52,4 @@ integrations = ["javascript_database:1.0.0", "resend:1.0.0"]
 [userenv.shared]
 ADMIN_USERNAME = "GrowthXadmin"
 ADMIN_PASSWORD = "Z7!qM9@Lr#4F^Kp2"
+NOTIFICATION_EMAIL = "Iamseoagency@gmail.com"
