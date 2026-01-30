@@ -74,6 +74,12 @@ Database tables:
 ### Environment Variables
 - `DATABASE_URL` - PostgreSQL connection string (required)
 - `SESSION_SECRET` - Session encryption key (defaults to fallback in dev)
+- `NOTIFICATION_EMAIL` - Email address to receive contact form notifications (Iamseoagency@gmail.com)
+
+### Email Notifications
+- **Provider**: Resend (via Replit integration)
+- **Trigger**: Contact form submissions send email notification to NOTIFICATION_EMAIL
+- **Note**: Requires domain verification in Resend dashboard for the "from" email address
 
 ### Third-Party Libraries
 - **@tanstack/react-query**: Server state management and caching
