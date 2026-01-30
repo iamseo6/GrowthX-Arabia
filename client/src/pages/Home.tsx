@@ -6,6 +6,7 @@ import { Process } from "@/components/sections/Process";
 import { CaseStudies } from "@/components/sections/CaseStudies";
 import { About } from "@/components/sections/About";
 import { Features } from "@/components/sections/Features";
+import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { BackToTop } from "@/components/ui/BackToTop";
 
@@ -20,6 +21,7 @@ export default function Home() {
         <CaseStudies />
         <About />
         <Features />
+        <FAQ />
         <Contact />
       </main>
       
