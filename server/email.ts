@@ -40,23 +40,25 @@ export async function getResendClient() {
 }
 
 export async function sendContactNotification(submission: {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  company?: string | null;
+  website?: string | null;
   message: string;
 }, notifyEmail: string) {
   try {
     const { client, fromEmail } = await getResendClient();
+    const fullName = `${submission.firstName} ${submission.lastName}`;
     
     const result = await client.emails.send({
       from: fromEmail,
       to: notifyEmail,
-      subject: `New Contact Form Submission from ${submission.name}`,
+      subject: `New Contact Form Submission from ${fullName}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${submission.name}</p>
+        <p><strong>Name:</strong> ${fullName}</p>
         <p><strong>Email:</strong> ${submission.email}</p>
-        ${submission.company ? `<p><strong>Company:</strong> ${submission.company}</p>` : ''}
+        ${submission.website ? `<p><strong>Website:</strong> ${submission.website}</p>` : ''}
         <p><strong>Message:</strong></p>
         <p>${submission.message}</p>
         <hr>
