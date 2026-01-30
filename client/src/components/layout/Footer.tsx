@@ -5,10 +5,12 @@ import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Send, Load
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/lib/language-context";
 
 export function Footer() {
   const currentYear = 2026;
   const { toast } = useToast();
+  const { t, language } = useLanguage();
   const [newsletterEmail, setNewsletterEmail] = useState("");
 
   const newsletterMutation = useMutation({
@@ -18,14 +20,14 @@ export function Footer() {
     },
     onSuccess: () => {
       toast({
-        title: "Subscribed!",
-        description: "Thank you for joining our newsletter.",
+        title: language === "ar" ? "تم الاشتراك!" : "Subscribed!",
+        description: language === "ar" ? "شكراً لانضمامك لنشرتنا الإخبارية." : "Thank you for joining our newsletter.",
       });
       setNewsletterEmail("");
     },
     onError: (error: Error) => {
       toast({
-        title: "Error",
+        title: language === "ar" ? "خطأ" : "Error",
         description: error.message,
         variant: "destructive",
       });
@@ -39,7 +41,26 @@ export function Footer() {
     }
   };
 
-  const footerLinks = {
+  const footerLinks = language === "ar" ? {
+    "الشركة": [
+      { name: "عنّا", href: "#about" },
+      { name: "دراسات الحالة", href: "#case-studies" },
+      { name: "العملية", href: "#process" },
+      { name: "تواصل معنا", href: "#contact" },
+    ],
+    "الخدمات": [
+      { name: "استراتيجية الذكاء الاصطناعي", href: "#services" },
+      { name: "أتمتة العمليات", href: "#services" },
+      { name: "وكلاء ذكاء اصطناعي مخصصين", href: "#services" },
+      { name: "تحليلات البيانات", href: "#services" },
+    ],
+    "قانوني": [
+      { name: "سياسة الخصوصية", href: "/privacy-policy" },
+      { name: "شروط الخدمة", href: "/terms-of-service" },
+      { name: "سياسة ملفات تعريف الارتباط", href: "/cookie-policy" },
+      { name: "خريطة الموقع", href: "/sitemap" },
+    ],
+  } : {
     Company: [
       { name: "About Us", href: "#about" },
       { name: "Case Studies", href: "#case-studies" },
@@ -76,29 +97,29 @@ export function Footer() {
               GrowthX Arabia
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-              Pioneering AI automation in the Middle East. We help businesses scale through intelligent digital transformation and cutting-edge automation solutions.
+              {t("footer.description")}
             </p>
-          <div className="flex gap-4">
-            {socialLinks.map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-                aria-label={social.label}
-              >
-                <social.icon className="h-5 w-5" />
-              </motion.a>
-            ))}
-          </div>
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-5 w-5" />
+                </motion.a>
+              ))}
+            </div>
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="space-y-6">
               <h4 className="text-white font-heading font-bold text-lg">{title}</h4>
               <ul className="space-y-4">
-                {links.map((link) => (
+                {links.map((link: { name: string; href: string }) => (
                   <li key={link.name}>
                     {link.href.startsWith("#") ? (
                       <motion.a
@@ -130,15 +151,21 @@ export function Footer() {
           ))}
 
           <div className="space-y-6">
-            <h4 className="text-white font-heading font-bold text-lg">Contact Us</h4>
+            <h4 className="text-white font-heading font-bold text-lg">
+              {language === "ar" ? "تواصل معنا" : "Contact Us"}
+            </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="h-5 w-5 text-primary shrink-0" />
-                <span>King Abdullah Financial District,<br />Riyadh, Saudi Arabia</span>
+                <span>
+                  {language === "ar" ? "حي الملك عبدالله المالي،" : "King Abdullah Financial District,"}
+                  <br />
+                  {language === "ar" ? "الرياض، المملكة العربية السعودية" : "Riyadh, Saudi Arabia"}
+                </span>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <span>+966 11 234 5678</span>
+                <span dir="ltr">+966 11 234 5678</span>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Mail className="h-5 w-5 text-primary shrink-0" />
@@ -150,14 +177,14 @@ export function Footer() {
 
         <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-muted-foreground text-xs">
-            © {currentYear} GrowthX Arabia. All rights reserved. Built for the future of the Middle East.
+            © {currentYear} GrowthX Arabia. {t("footer.rights")} {language === "ar" ? "صُنع لمستقبل الشرق الأوسط." : "Built for the future of the Middle East."}
           </p>
           <div className="flex gap-8">
             <Link href="/admin" className="text-muted-foreground hover:text-primary text-xs transition-colors">
-              Admin Portal
+              {language === "ar" ? "بوابة الإدارة" : "Admin Portal"}
             </Link>
             <span className="text-muted-foreground text-xs">
-              Made with ❤️ in Riyadh
+              {language === "ar" ? "صُنع بـ ❤️ في الرياض" : "Made with ❤️ in Riyadh"}
             </span>
           </div>
         </div>

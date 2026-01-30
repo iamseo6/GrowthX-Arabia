@@ -9,9 +9,12 @@ import { insertContactSubmissionSchema, type InsertContactSubmission } from "@sh
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
 
 export function Contact() {
   const { toast } = useToast();
+  const { t, isRTL, language } = useLanguage();
+  
   const form = useForm<InsertContactSubmission>({
     resolver: zodResolver(insertContactSubmissionSchema),
     defaultValues: {
@@ -40,14 +43,14 @@ export function Contact() {
     },
     onSuccess: () => {
       toast({
-        title: "Message Sent!",
-        description: "We'll get back to you within 24 hours.",
+        title: t("contact.success"),
+        description: t("contact.successDesc"),
       });
       form.reset();
     },
     onError: (error: Error) => {
       toast({
-        title: "Error",
+        title: language === "ar" ? "خطأ" : "Error",
         description: error.message,
         variant: "destructive",
       });
@@ -63,10 +66,10 @@ export function Contact() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">
-            Ready to <span className="text-primary">Transform?</span>
+            {t("contact.title")} <span className="text-primary">{t("contact.titleHighlight")}</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Schedule a consultation with our AI architects today.
+            {t("contact.subtitle")}
           </p>
         </div>
 
@@ -80,10 +83,10 @@ export function Contact() {
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">First Name</label>
+                    <label className="text-sm font-medium">{t("contact.firstName")}</label>
                     <Input 
                       {...form.register("firstName")}
-                      placeholder="John" 
+                      placeholder={isRTL ? "أحمد" : "John"}
                       className="bg-white/5 border-white/10 h-12"
                       data-testid="input-firstName" 
                     />
@@ -92,10 +95,10 @@ export function Contact() {
                     )}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Last Name</label>
+                    <label className="text-sm font-medium">{t("contact.lastName")}</label>
                     <Input 
                       {...form.register("lastName")}
-                      placeholder="Doe" 
+                      placeholder={isRTL ? "محمد" : "Doe"}
                       className="bg-white/5 border-white/10 h-12"
                       data-testid="input-lastName" 
                     />
@@ -107,11 +110,11 @@ export function Contact() {
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Email</label>
+                    <label className="text-sm font-medium">{t("contact.email")}</label>
                     <Input 
                       {...form.register("email")}
                       type="email" 
-                      placeholder="john@company.com" 
+                      placeholder={isRTL ? "ahmed@company.com" : "john@company.com"}
                       className="bg-white/5 border-white/10 h-12"
                       data-testid="input-email" 
                     />
@@ -120,7 +123,7 @@ export function Contact() {
                     )}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Website (optional)</label>
+                    <label className="text-sm font-medium">{t("contact.website")}</label>
                     <Input 
                       {...form.register("website")}
                       type="url" 
@@ -135,10 +138,10 @@ export function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Message</label>
+                  <label className="text-sm font-medium">{t("contact.message")}</label>
                   <Textarea 
                     {...form.register("message")}
-                    placeholder="Tell us about your automation needs..." 
+                    placeholder={t("contact.messagePlaceholder")}
                     className="bg-white/5 border-white/10 min-h-[150px]"
                     data-testid="textarea-message" 
                   />
@@ -155,11 +158,11 @@ export function Contact() {
                 >
                   {mutation.isPending ? (
                     <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Sending...
+                      <Loader2 className="h-5 w-5 animate-spin ltr:mr-2 rtl:ml-2" />
+                      {t("contact.sending")}
                     </>
                   ) : (
-                    "Send Message"
+                    t("contact.submit")
                   )}
                 </Button>
               </form>

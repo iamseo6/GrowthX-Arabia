@@ -31,7 +31,8 @@ const translations: Record<Language, Record<string, TranslationValue>> = {
     "hero.cta2": "See Our Work",
     
     // Services
-    "services.title": "Our Services",
+    "services.titlePart1": "Our",
+    "services.titlePart2": "Services",
     "services.subtitle": "End-to-end AI automation solutions designed for enterprise scale",
     "services.items": [
       {
@@ -61,7 +62,8 @@ const translations: Record<Language, Record<string, TranslationValue>> = {
     ],
     
     // Process
-    "process.title": "Our Process",
+    "process.titlePart1": "Our",
+    "process.titlePart2": "Process",
     "process.subtitle": "A proven methodology for successful AI implementation",
     "process.steps": [
       { number: "01", title: "Discovery", description: "We analyze your workflows and identify automation opportunities" },
@@ -147,7 +149,8 @@ const translations: Record<Language, Record<string, TranslationValue>> = {
     "hero.cta2": "شاهد أعمالنا",
     
     // Services
-    "services.title": "خدماتنا",
+    "services.titlePart1": "",
+    "services.titlePart2": "خدماتنا",
     "services.subtitle": "حلول أتمتة الذكاء الاصطناعي الشاملة المصممة للمؤسسات",
     "services.items": [
       {
@@ -177,7 +180,8 @@ const translations: Record<Language, Record<string, TranslationValue>> = {
     ],
     
     // Process
-    "process.title": "منهجيتنا",
+    "process.titlePart1": "",
+    "process.titlePart2": "منهجيتنا",
     "process.subtitle": "منهجية مثبتة لتنفيذ ناجح للذكاء الاصطناعي",
     "process.steps": [
       { number: "٠١", title: "الاكتشاف", description: "نحلل سير عملك ونحدد فرص الأتمتة" },

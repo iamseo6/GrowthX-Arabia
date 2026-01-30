@@ -23,6 +23,14 @@ The frontend follows a component-based architecture with:
 - `components/sections/` - Landing page sections (Hero, Services, Process, etc.)
 - `components/layout/` - Shared layout components (Navbar, Footer)
 - `components/ui/` - Reusable shadcn/ui components
+- `lib/language-context.tsx` - Internationalization context provider with English/Arabic translations
+
+### Internationalization (i18n)
+- **Languages**: English (en) and Arabic (ar)
+- **RTL Support**: Browser-native RTL handling via `dir="rtl"` on the HTML element
+- **Translation System**: React Context with `t()` for strings and `tArray()` for arrays
+- **Language Toggle**: Globe icon in navbar switches between languages
+- **Storage**: Language preference stored in localStorage
 
 ### Backend Architecture
 - **Framework**: Express.js with TypeScript
