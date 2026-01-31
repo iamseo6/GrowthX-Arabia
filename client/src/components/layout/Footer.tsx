@@ -51,8 +51,9 @@ export function Footer() {
     "الخدمات": [
       { name: "استراتيجية الذكاء الاصطناعي", href: "#services" },
       { name: "أتمتة العمليات", href: "#services" },
-      { name: "وكلاء ذكاء اصطناعي مخصصين", href: "#services" },
-      { name: "تحليلات البيانات", href: "#services" },
+      { name: "تحسين محركات البحث بالذكاء الاصطناعي", href: "/services/ai-seo" },
+      { name: "إعلانات جوجل الآلية", href: "/services/ai-google-ads" },
+      { name: "تحسين البحث المحلي", href: "/services/ai-local-seo" },
     ],
     "قانوني": [
       { name: "سياسة الخصوصية", href: "/privacy-policy" },
@@ -70,8 +71,9 @@ export function Footer() {
     Services: [
       { name: "AI Strategy", href: "#services" },
       { name: "Process Automation", href: "#services" },
-      { name: "Custom AI Agents", href: "#services" },
-      { name: "Data Analytics", href: "#services" },
+      { name: "AI Automated SEO", href: "/services/ai-seo" },
+      { name: "AI Google Ads", href: "/services/ai-google-ads" },
+      { name: "AI Local SEO", href: "/services/ai-local-seo" },
     ],
     Legal: [
       { name: "Privacy Policy", href: "/privacy-policy" },
