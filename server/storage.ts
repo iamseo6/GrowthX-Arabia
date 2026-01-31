@@ -8,9 +8,11 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
   getContactSubmissions(): Promise<ContactSubmission[]>;
+  deleteContactSubmission(id: number): Promise<boolean>;
   createNewsletterSubscriber(subscriber: InsertNewsletter): Promise<NewsletterSubscriber>;
   createLead(lead: InsertLead): Promise<Lead>;
   getLeads(): Promise<Lead[]>;
+  deleteLead(id: number): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -44,6 +46,11 @@ export class DatabaseStorage implements IStorage {
     return await db.select().from(contactSubmissions).orderBy(contactSubmissions.createdAt);
   }
 
+  async deleteContactSubmission(id: number): Promise<boolean> {
+    const result = await db.delete(contactSubmissions).where(eq(contactSubmissions.id, id)).returning();
+    return result.length > 0;
+  }
+
   async createNewsletterSubscriber(subscriber: InsertNewsletter): Promise<NewsletterSubscriber> {
     const [newSubscriber] = await db
       .insert(newsletterSubscribers)
@@ -62,6 +69,11 @@ export class DatabaseStorage implements IStorage {
 
   async getLeads(): Promise<Lead[]> {
     return await db.select().from(leads).orderBy(leads.createdAt);
+  }
+
+  async deleteLead(id: number): Promise<boolean> {
+    const result = await db.delete(leads).where(eq(leads.id, id)).returning();
+    return result.length > 0;
   }
 }
 

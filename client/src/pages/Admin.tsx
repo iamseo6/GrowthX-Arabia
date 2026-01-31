@@ -1,14 +1,17 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { ContactSubmission, Lead } from "@shared/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Loader2, LogOut, Users, MessageSquare } from "lucide-react";
+import { Loader2, LogOut, Users, MessageSquare, Trash2 } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function AdminPage() {
   const { logoutMutation } = useAuth();
+  const queryClient = useQueryClient();
+  
   const { data: submissions, isLoading: submissionsLoading } = useQuery<ContactSubmission[]>({
     queryKey: ["/api/contact"],
   });
@@ -16,6 +19,36 @@ export default function AdminPage() {
   const { data: leads, isLoading: leadsLoading } = useQuery<Lead[]>({
     queryKey: ["/api/leads"],
   });
+
+  const deleteLeadMutation = useMutation({
+    mutationFn: async (id: number) => {
+      await apiRequest("DELETE", `/api/leads/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/leads"] });
+    },
+  });
+
+  const deleteContactMutation = useMutation({
+    mutationFn: async (id: number) => {
+      await apiRequest("DELETE", `/api/contact/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/contact"] });
+    },
+  });
+
+  const handleDeleteLead = (id: number, name: string) => {
+    if (window.confirm(`Are you sure you want to delete the lead from ${name}? This cannot be undone.`)) {
+      deleteLeadMutation.mutate(id);
+    }
+  };
+
+  const handleDeleteContact = (id: number, name: string) => {
+    if (window.confirm(`Are you sure you want to delete the message from ${name}? This cannot be undone.`)) {
+      deleteContactMutation.mutate(id);
+    }
+  };
 
   const isLoading = submissionsLoading || leadsLoading;
 
@@ -69,7 +102,8 @@ export default function AdminPage() {
                         <TableHead className="text-muted-foreground font-semibold">Budget</TableHead>
                         <TableHead className="text-muted-foreground font-semibold">Timeline</TableHead>
                         <TableHead className="text-muted-foreground font-semibold">Contact</TableHead>
-                        <TableHead className="text-muted-foreground font-semibold text-right">Date</TableHead>
+                        <TableHead className="text-muted-foreground font-semibold">Date</TableHead>
+                        <TableHead className="text-muted-foreground font-semibold text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -97,18 +131,30 @@ export default function AdminPage() {
                               {lead.phone && <p className="text-xs">{lead.phone} {lead.preferWhatsApp === 'yes' && '(WhatsApp)'}</p>}
                             </div>
                           </TableCell>
-                          <TableCell className="text-muted-foreground text-right whitespace-nowrap">
+                          <TableCell className="text-muted-foreground whitespace-nowrap">
                             {new Date(lead.createdAt).toLocaleDateString(undefined, {
                               year: 'numeric',
                               month: 'short',
                               day: 'numeric'
                             })}
                           </TableCell>
+                          <TableCell className="text-right">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => handleDeleteLead(lead.id, `${lead.firstName} ${lead.lastName}`)}
+                              disabled={deleteLeadMutation.isPending}
+                              className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                              data-testid={`button-delete-lead-${lead.id}`}
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </TableCell>
                         </TableRow>
                       ))}
                       {(!leads || leads.length === 0) && (
                         <TableRow>
-                          <TableCell colSpan={7} className="text-center py-20 text-muted-foreground">
+                          <TableCell colSpan={8} className="text-center py-20 text-muted-foreground">
                             <div className="flex flex-col items-center gap-2">
                               <Users className="h-12 w-12 text-muted-foreground/30" />
                               <p className="text-lg font-medium">No leads yet</p>
@@ -131,7 +177,8 @@ export default function AdminPage() {
                         <TableHead className="text-muted-foreground font-semibold">Email</TableHead>
                         <TableHead className="text-muted-foreground font-semibold">Website</TableHead>
                         <TableHead className="text-muted-foreground font-semibold">Message</TableHead>
-                        <TableHead className="text-muted-foreground font-semibold text-right">Date</TableHead>
+                        <TableHead className="text-muted-foreground font-semibold">Date</TableHead>
+                        <TableHead className="text-muted-foreground font-semibold text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -153,18 +200,30 @@ export default function AdminPage() {
                           <TableCell className="text-muted-foreground max-w-md">
                             <p className="line-clamp-2">{submission.message}</p>
                           </TableCell>
-                          <TableCell className="text-muted-foreground text-right whitespace-nowrap">
+                          <TableCell className="text-muted-foreground whitespace-nowrap">
                             {new Date(submission.createdAt).toLocaleDateString(undefined, {
                               year: 'numeric',
                               month: 'short',
                               day: 'numeric'
                             })}
                           </TableCell>
+                          <TableCell className="text-right">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => handleDeleteContact(submission.id, `${submission.firstName} ${submission.lastName}`)}
+                              disabled={deleteContactMutation.isPending}
+                              className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                              data-testid={`button-delete-contact-${submission.id}`}
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </TableCell>
                         </TableRow>
                       ))}
                       {(!submissions || submissions.length === 0) && (
                         <TableRow>
-                          <TableCell colSpan={5} className="text-center py-20 text-muted-foreground">
+                          <TableCell colSpan={6} className="text-center py-20 text-muted-foreground">
                             <div className="flex flex-col items-center gap-2">
                               <MessageSquare className="h-12 w-12 text-muted-foreground/30" />
                               <p className="text-lg font-medium">No messages yet</p>
