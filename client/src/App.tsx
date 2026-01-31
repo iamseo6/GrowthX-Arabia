@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "./hooks/use-auth";
 import { LanguageProvider } from "./lib/language-context";
 import { ProtectedRoute } from "@/lib/protected-route";
+import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 import Home from "@/pages/Home";
 import Admin from "@/pages/Admin";
 import AuthPage from "@/pages/Auth";
@@ -42,6 +43,7 @@ function App() {
           <TooltipProvider>
             <Toaster />
             <Router />
+            <WhatsAppWidget />
           </TooltipProvider>
         </AuthProvider>
       </LanguageProvider>
