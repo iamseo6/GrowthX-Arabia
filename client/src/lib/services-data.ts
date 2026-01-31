@@ -560,6 +560,87 @@ export const servicesData: ServiceData[] = [
     ],
     ctaText: "Dominate Local Search",
     ctaTextAr: "تصدّر البحث المحلي"
+  },
+  {
+    slug: "ai-social-scheduling",
+    title: "AI Social Media Scheduling",
+    titleAr: "جدولة وسائل التواصل بالذكاء الاصطناعي",
+    subtitle: "Automate Your Social Media Presence",
+    subtitleAr: "أتمتة تواجدك على وسائل التواصل الاجتماعي",
+    description: "Automate your social media presence with AI-powered content creation, optimal scheduling, and multi-platform management across Instagram, TikTok, Twitter, Facebook, and LinkedIn.",
+    descriptionAr: "أتمتة تواجدك على وسائل التواصل الاجتماعي مع إنشاء المحتوى بالذكاء الاصطناعي والجدولة المثلى وإدارة المنصات المتعددة عبر انستغرام وتيك توك وتويتر وفيسبوك ولينكد إن.",
+    features: [
+      {
+        title: "AI Content Generation",
+        titleAr: "إنشاء المحتوى بالذكاء الاصطناعي",
+        description: "Generate engaging captions, hashtags, and content ideas tailored to your brand voice.",
+        descriptionAr: "إنشاء تعليقات جذابة وهاشتاقات وأفكار محتوى مصممة لصوت علامتك التجارية.",
+        icon: "Sparkles"
+      },
+      {
+        title: "Optimal Scheduling",
+        titleAr: "الجدولة المثلى",
+        description: "AI analyzes your audience to post at times when engagement is highest.",
+        descriptionAr: "الذكاء الاصطناعي يحلل جمهورك للنشر في الأوقات التي يكون فيها التفاعل أعلى.",
+        icon: "Clock"
+      },
+      {
+        title: "Multi-Platform Management",
+        titleAr: "إدارة المنصات المتعددة",
+        description: "Schedule and publish to Instagram, TikTok, Twitter, Facebook, and LinkedIn from one dashboard.",
+        descriptionAr: "جدولة ونشر على انستغرام وتيك توك وتويتر وفيسبوك ولينكد إن من لوحة واحدة.",
+        icon: "Share2"
+      },
+      {
+        title: "Automated Responses",
+        titleAr: "الردود الآلية",
+        description: "AI-powered comment and DM responses to maintain engagement 24/7.",
+        descriptionAr: "ردود مدعومة بالذكاء الاصطناعي على التعليقات والرسائل للحفاظ على التفاعل على مدار الساعة.",
+        icon: "MessageCircle"
+      }
+    ],
+    useCases: [
+      {
+        title: "E-commerce Brands",
+        titleAr: "العلامات التجارية للتجارة الإلكترونية",
+        description: "Showcase products consistently across platforms with automated posting schedules.",
+        descriptionAr: "عرض المنتجات باستمرار عبر المنصات مع جداول نشر آلية."
+      },
+      {
+        title: "Influencers & Creators",
+        titleAr: "المؤثرون والمبدعون",
+        description: "Maintain consistent presence without spending hours on content scheduling.",
+        descriptionAr: "الحفاظ على تواجد مستمر دون قضاء ساعات في جدولة المحتوى."
+      },
+      {
+        title: "Marketing Agencies",
+        titleAr: "وكالات التسويق",
+        description: "Manage multiple client accounts efficiently with bulk scheduling and analytics.",
+        descriptionAr: "إدارة حسابات عملاء متعددة بكفاءة مع الجدولة المجمعة والتحليلات."
+      }
+    ],
+    faqs: [
+      {
+        question: "Which social media platforms do you support?",
+        questionAr: "ما منصات التواصل الاجتماعي التي تدعمونها؟",
+        answer: "We support all major platforms including Instagram, TikTok, Twitter/X, Facebook, LinkedIn, Pinterest, and YouTube Shorts.",
+        answerAr: "ندعم جميع المنصات الرئيسية بما في ذلك انستغرام وتيك توك وتويتر/X وفيسبوك ولينكد إن وبينترست ويوتيوب شورتس."
+      },
+      {
+        question: "Can the AI match my brand's voice and style?",
+        questionAr: "هل يمكن للذكاء الاصطناعي مطابقة صوت وأسلوب علامتي التجارية؟",
+        answer: "Yes, our AI learns from your existing content and brand guidelines to generate posts that match your unique voice and aesthetic.",
+        answerAr: "نعم، يتعلم الذكاء الاصطناعي من محتواك الحالي وإرشادات علامتك التجارية لإنشاء منشورات تتطابق مع صوتك وجماليتك الفريدة."
+      },
+      {
+        question: "How does optimal scheduling work?",
+        questionAr: "كيف تعمل الجدولة المثلى؟",
+        answer: "Our AI analyzes your audience's activity patterns and engagement data to identify the best times to post for maximum reach and interaction.",
+        answerAr: "يحلل الذكاء الاصطناعي أنماط نشاط جمهورك وبيانات التفاعل لتحديد أفضل أوقات النشر لتحقيق أقصى وصول وتفاعل."
+      }
+    ],
+    ctaText: "Automate Your Social Media",
+    ctaTextAr: "أتمتة وسائل التواصل"
   }
 ];
 

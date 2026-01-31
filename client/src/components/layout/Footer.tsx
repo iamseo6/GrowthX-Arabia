@@ -56,6 +56,7 @@ export function Footer() {
       { name: "تحسين محركات البحث", href: "/services/ai-seo" },
       { name: "إعلانات جوجل الآلية", href: "/services/ai-google-ads" },
       { name: "تحسين البحث المحلي", href: "/services/ai-local-seo" },
+      { name: "جدولة وسائل التواصل", href: "/services/ai-social-scheduling" },
     ],
     "قانوني": [
       { name: "سياسة الخصوصية", href: "/privacy-policy" },
@@ -78,6 +79,7 @@ export function Footer() {
       { name: "AI Automated SEO", href: "/services/ai-seo" },
       { name: "AI Google Ads", href: "/services/ai-google-ads" },
       { name: "AI Local SEO", href: "/services/ai-local-seo" },
+      { name: "AI Social Scheduling", href: "/services/ai-social-scheduling" },
     ],
     Legal: [
       { name: "Privacy Policy", href: "/privacy-policy" },

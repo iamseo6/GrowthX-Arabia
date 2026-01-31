@@ -14,6 +14,7 @@ import serviceDataAnalytics from "@/assets/images/service-data-analytics.png";
 import serviceAiSeo from "@/assets/images/service-ai-seo.png";
 import serviceAiGoogleAds from "@/assets/images/service-ai-google-ads.png";
 import serviceAiLocalSeo from "@/assets/images/service-ai-local-seo.png";
+import serviceAiSocialScheduling from "@/assets/images/service-ai-social-scheduling.png";
 
 const services = [
   {
@@ -92,6 +93,17 @@ const services = [
     color: "from-teal-500 to-green-500",
     category: "Local SEO",
     categoryAr: "البحث المحلي",
+  },
+  {
+    slug: "ai-social-scheduling",
+    title: "AI Social Media Scheduling",
+    titleAr: "جدولة وسائل التواصل بالذكاء الاصطناعي",
+    description: "Automate your social media presence with AI-powered content creation, optimal scheduling, and multi-platform management.",
+    descriptionAr: "أتمتة تواجدك على وسائل التواصل الاجتماعي مع إنشاء المحتوى بالذكاء الاصطناعي والجدولة المثلى وإدارة المنصات المتعددة.",
+    image: serviceAiSocialScheduling,
+    color: "from-pink-500 to-purple-500",
+    category: "Social Media",
+    categoryAr: "وسائل التواصل",
   },
 ];
 
