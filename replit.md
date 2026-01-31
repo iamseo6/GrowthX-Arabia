@@ -19,11 +19,22 @@ Preferred communication style: Simple, everyday language.
 - **Build Tool**: Vite with custom plugins for Replit integration
 
 The frontend follows a component-based architecture with:
-- `pages/` - Route-level components (Home, Admin, Auth, legal pages)
+- `pages/` - Route-level components (Home, Admin, Auth, legal pages, ServiceDetail)
 - `components/sections/` - Landing page sections (Hero, Services, Process, etc.)
 - `components/layout/` - Shared layout components (Navbar, Footer)
 - `components/ui/` - Reusable shadcn/ui components
 - `lib/language-context.tsx` - Internationalization context provider with English/Arabic translations
+- `lib/services-data.ts` - Service detail page data with full English/Arabic content
+
+### Service Pages
+Individual service detail pages accessible at `/services/:slug`:
+- Workflow Automation (`/services/workflow-automation`) - n8n, Make integrations
+- AI Chatbots & Agents (`/services/ai-chatbots`) - Conversational AI
+- CRM Automation (`/services/crm-automation`) - GoHighLevel
+- Data Analytics & Insights (`/services/data-analytics`) - Business intelligence
+- AI Automated SEO (`/services/ai-seo`) - AI-powered SEO automation
+- AI Automated Google Ads (`/services/ai-google-ads`) - PPC campaign management
+- AI Automated Local SEO (`/services/ai-local-seo`) - GBP optimization, citations
 
 ### Internationalization (i18n)
 - **Languages**: English (en) and Arabic (ar)

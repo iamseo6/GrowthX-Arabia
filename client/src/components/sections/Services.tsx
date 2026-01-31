@@ -1,19 +1,26 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { 
   Bot, 
   Workflow, 
   BrainCircuit, 
   MessageSquareCode, 
   Database, 
-  LineChart 
+  LineChart,
+  Search,
+  Target,
+  MapPin,
+  ArrowRight,
+  ArrowLeft
 } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
+import { servicesData } from "@/lib/services-data";
 
-const serviceIcons = [Workflow, Bot, BrainCircuit, MessageSquareCode, Database, LineChart];
+const serviceIcons = [Workflow, Bot, BrainCircuit, LineChart, Search, Target, MapPin];
 
 export function Services() {
-  const { t, tArray } = useLanguage();
-  const services = tArray("services.items");
+  const { t, language, isRTL } = useLanguage();
+  const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
   return (
     <section id="services" className="py-24 bg-background relative overflow-hidden">
@@ -28,26 +35,35 @@ export function Services() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service: any, index: number) => {
+          {servicesData.map((service, index) => {
             const Icon = serviceIcons[index] || Bot;
+            const title = language === "ar" ? service.titleAr : service.title;
+            const description = language === "ar" ? service.descriptionAr : service.description;
+            
             return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="glass-card p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-colors group"
-              >
-                <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <Icon className="h-7 w-7" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 font-heading">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </motion.div>
+              <Link key={service.slug} href={`/services/${service.slug}`}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="glass-card p-8 rounded-2xl border border-white/5 hover:border-primary/50 transition-colors group cursor-pointer h-full"
+                  data-testid={`service-card-${service.slug}`}
+                >
+                  <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className={`text-xl font-bold mb-3 font-heading ${isRTL ? "text-right" : ""}`}>{title}</h3>
+                  <p className={`text-muted-foreground leading-relaxed mb-4 ${isRTL ? "text-right" : ""}`}>
+                    {description}
+                  </p>
+                  <div className={`flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all ${isRTL ? "flex-row-reverse justify-end" : ""}`}>
+                    <span>{isRTL ? "اعرف المزيد" : "Learn More"}</span>
+                    <ArrowIcon className="h-4 w-4" />
+                  </div>
+                </motion.div>
+              </Link>
             );
           })}
         </div>
