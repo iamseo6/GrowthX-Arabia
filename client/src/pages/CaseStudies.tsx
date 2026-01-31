@@ -14,6 +14,10 @@ import caseStudyOnboarding from "@/assets/images/case-study-onboarding.png";
 import caseStudyEcommerce from "@/assets/images/case-study-ecommerce.png";
 import caseStudyBooking from "@/assets/images/case-study-booking.png";
 import caseStudySocial from "@/assets/images/case-study-social.png";
+import caseStudyAiSeo from "@/assets/images/case-study-ai-seo.png";
+import caseStudyAiGoogleAds from "@/assets/images/case-study-ai-google-ads.png";
+import caseStudyAiLocalSeo from "@/assets/images/case-study-ai-local-seo.png";
+import caseStudySocialScheduler from "@/assets/images/case-study-social-scheduler.png";
 
 const caseStudies = [
   {
@@ -117,6 +121,74 @@ const caseStudies = [
       { label: "Hours Saved", labelAr: "ساعات موفرة", value: "25h/wk", icon: Clock },
     ],
     image: caseStudySocial
+  },
+  {
+    title: "AI-Powered SEO Optimization",
+    titleAr: "تحسين محركات البحث بالذكاء الاصطناعي",
+    client: "E-Commerce Giant KSA",
+    clientAr: "عملاق التجارة الإلكترونية السعودية",
+    category: "AI SEO",
+    categoryAr: "SEO ذكي",
+    platform: "AI",
+    description: "Deployed an AI-driven SEO automation system that analyzes competitors, generates optimized content briefs, automates meta tag optimization, and tracks keyword rankings across 500+ pages.",
+    descriptionAr: "نشر نظام أتمتة SEO مدعوم بالذكاء الاصطناعي يحلل المنافسين وينشئ ملخصات محتوى محسنة ويؤتمت تحسين العلامات الوصفية ويتتبع تصنيفات الكلمات الرئيسية عبر أكثر من 500 صفحة.",
+    stats: [
+      { label: "Organic Traffic", labelAr: "الزيارات العضوية", value: "+340%", icon: BarChart3 },
+      { label: "Ranking Keywords", labelAr: "الكلمات المصنفة", value: "2.5x", icon: Zap },
+      { label: "Content Time", labelAr: "وقت المحتوى", value: "-75%", icon: Clock },
+    ],
+    image: caseStudyAiSeo
+  },
+  {
+    title: "AI Google Ads Campaign Manager",
+    titleAr: "مدير حملات إعلانات جوجل الذكي",
+    client: "FinTech Startup UAE",
+    clientAr: "شركة تقنية مالية ناشئة الإمارات",
+    category: "AI Google Ads",
+    categoryAr: "إعلانات جوجل ذكية",
+    platform: "AI",
+    description: "Built an AI automation that optimizes Google Ads campaigns in real-time, adjusts bids based on conversion patterns, generates ad copy variations, and allocates budget across campaigns automatically.",
+    descriptionAr: "بناء أتمتة ذكاء اصطناعي تحسن حملات إعلانات جوجل في الوقت الفعلي وتعدل العروض بناءً على أنماط التحويل وتنشئ تنويعات نسخ الإعلانات وتوزع الميزانية تلقائياً.",
+    stats: [
+      { label: "ROAS", labelAr: "عائد الإعلان", value: "+180%", icon: BarChart3 },
+      { label: "Cost per Lead", labelAr: "تكلفة العميل", value: "-55%", icon: Clock },
+      { label: "Conversions", labelAr: "التحويلات", value: "3.2x", icon: Users },
+    ],
+    image: caseStudyAiGoogleAds
+  },
+  {
+    title: "AI Local SEO Domination",
+    titleAr: "هيمنة SEO المحلي بالذكاء الاصطناعي",
+    client: "Restaurant Chain Riyadh",
+    clientAr: "سلسلة مطاعم الرياض",
+    category: "AI Local SEO",
+    categoryAr: "SEO محلي ذكي",
+    platform: "AI",
+    description: "Implemented AI-powered local SEO automation managing 25 locations with automated Google Business Profile optimization, review response generation, citation building, and local ranking tracking.",
+    descriptionAr: "تنفيذ أتمتة SEO محلية مدعومة بالذكاء الاصطناعي تدير 25 موقعاً مع تحسين ملف جوجل للأعمال وإنشاء ردود المراجعات وبناء الاستشهادات وتتبع التصنيف المحلي.",
+    stats: [
+      { label: "Map Pack Rankings", labelAr: "تصنيف الخريطة", value: "Top 3", icon: BarChart3 },
+      { label: "Review Response", labelAr: "الرد على المراجعات", value: "< 1hr", icon: Clock },
+      { label: "Local Visibility", labelAr: "الظهور المحلي", value: "+420%", icon: Zap },
+    ],
+    image: caseStudyAiLocalSeo
+  },
+  {
+    title: "AI Social Media Scheduler",
+    titleAr: "جدولة وسائل التواصل بالذكاء الاصطناعي",
+    client: "Fashion Brand Dubai",
+    clientAr: "علامة أزياء دبي",
+    category: "AI Social",
+    categoryAr: "تواصل اجتماعي ذكي",
+    platform: "AI",
+    description: "Created an AI-powered social media management system that generates content ideas, creates captions, schedules posts at optimal times, and automatically responds to comments across Instagram, TikTok, and Twitter.",
+    descriptionAr: "إنشاء نظام إدارة وسائل التواصل الاجتماعي بالذكاء الاصطناعي يولد أفكار المحتوى وينشئ التعليقات ويجدول المنشورات في الأوقات المثلى ويرد تلقائياً على التعليقات عبر انستغرام وتيك توك وتويتر.",
+    stats: [
+      { label: "Engagement Rate", labelAr: "معدل التفاعل", value: "+250%", icon: BarChart3 },
+      { label: "Posting Frequency", labelAr: "تكرار النشر", value: "4x", icon: Zap },
+      { label: "Response Time", labelAr: "وقت الرد", value: "< 10min", icon: Clock },
+    ],
+    image: caseStudySocialScheduler
   }
 ];
 
@@ -124,6 +196,7 @@ const platformColors: Record<string, string> = {
   "n8n": "bg-orange-500/20 text-orange-400 border-orange-500/30",
   "Make": "bg-purple-500/20 text-purple-400 border-purple-500/30",
   "GoHighLevel": "bg-green-500/20 text-green-400 border-green-500/30",
+  "AI": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
 };
 
 export default function CaseStudies() {
@@ -157,15 +230,16 @@ export default function CaseStudies() {
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground">
               {language === "ar" 
-                ? "قصص نجاح حقيقية في الأتمتة باستخدام n8n و Make و GoHighLevel في جميع أنحاء المنطقة."
-                : "Real automation success stories using n8n, Make, and GoHighLevel across the region."
+                ? "قصص نجاح حقيقية في الأتمتة والذكاء الاصطناعي باستخدام n8n و Make و GoHighLevel وحلول AI في جميع أنحاء المنطقة."
+                : "Real automation and AI success stories using n8n, Make, GoHighLevel, and AI solutions across the region."
               }
             </p>
             
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-6 flex-wrap">
               <Badge variant="outline" className={platformColors["n8n"]}>n8n</Badge>
               <Badge variant="outline" className={platformColors["Make"]}>Make</Badge>
               <Badge variant="outline" className={platformColors["GoHighLevel"]}>GoHighLevel</Badge>
+              <Badge variant="outline" className={platformColors["AI"]}>AI</Badge>
             </div>
           </motion.div>
 

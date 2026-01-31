@@ -9,6 +9,10 @@ import caseStudyOnboarding from "@/assets/images/case-study-onboarding.png";
 import caseStudyEcommerce from "@/assets/images/case-study-ecommerce.png";
 import caseStudyBooking from "@/assets/images/case-study-booking.png";
 import caseStudySocial from "@/assets/images/case-study-social.png";
+import caseStudyAiSeo from "@/assets/images/case-study-ai-seo.png";
+import caseStudyAiGoogleAds from "@/assets/images/case-study-ai-google-ads.png";
+import caseStudyAiLocalSeo from "@/assets/images/case-study-ai-local-seo.png";
+import caseStudySocialScheduler from "@/assets/images/case-study-social-scheduler.png";
 
 const caseStudies = [
   {
@@ -88,6 +92,58 @@ const caseStudies = [
       { label: "Hours Saved", value: "25h/wk", icon: Clock },
     ],
     image: caseStudySocial
+  },
+  {
+    title: "AI-Powered SEO Optimization",
+    client: "E-Commerce Giant KSA",
+    category: "AI SEO",
+    platform: "AI",
+    description: "Deployed an AI-driven SEO automation system that analyzes competitors, generates optimized content briefs, automates meta tag optimization, and tracks keyword rankings across 500+ pages.",
+    stats: [
+      { label: "Organic Traffic", value: "+340%", icon: BarChart3 },
+      { label: "Ranking Keywords", value: "2.5x", icon: Zap },
+      { label: "Content Time", value: "-75%", icon: Clock },
+    ],
+    image: caseStudyAiSeo
+  },
+  {
+    title: "AI Google Ads Campaign Manager",
+    client: "FinTech Startup UAE",
+    category: "AI Google Ads",
+    platform: "AI",
+    description: "Built an AI automation that optimizes Google Ads campaigns in real-time, adjusts bids based on conversion patterns, generates ad copy variations, and allocates budget across campaigns automatically.",
+    stats: [
+      { label: "ROAS", value: "+180%", icon: BarChart3 },
+      { label: "Cost per Lead", value: "-55%", icon: Clock },
+      { label: "Conversions", value: "3.2x", icon: Users },
+    ],
+    image: caseStudyAiGoogleAds
+  },
+  {
+    title: "AI Local SEO Domination",
+    client: "Restaurant Chain Riyadh",
+    category: "AI Local SEO",
+    platform: "AI",
+    description: "Implemented AI-powered local SEO automation managing 25 locations with automated Google Business Profile optimization, review response generation, citation building, and local ranking tracking.",
+    stats: [
+      { label: "Map Pack Rankings", value: "Top 3", icon: BarChart3 },
+      { label: "Review Response", value: "< 1hr", icon: Clock },
+      { label: "Local Visibility", value: "+420%", icon: Zap },
+    ],
+    image: caseStudyAiLocalSeo
+  },
+  {
+    title: "AI Social Media Scheduler",
+    client: "Fashion Brand Dubai",
+    category: "AI Social",
+    platform: "AI",
+    description: "Created an AI-powered social media management system that generates content ideas, creates captions, schedules posts at optimal times, and automatically responds to comments across Instagram, TikTok, and Twitter.",
+    stats: [
+      { label: "Engagement Rate", value: "+250%", icon: BarChart3 },
+      { label: "Posting Frequency", value: "4x", icon: Zap },
+      { label: "Response Time", value: "< 10min", icon: Clock },
+    ],
+    image: caseStudySocialScheduler
   }
 ];
 
@@ -95,6 +151,7 @@ const platformColors: Record<string, string> = {
   "n8n": "bg-orange-500/20 text-orange-400 border-orange-500/30",
   "Make": "bg-purple-500/20 text-purple-400 border-purple-500/30",
   "GoHighLevel": "bg-green-500/20 text-green-400 border-green-500/30",
+  "AI": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
 };
 
 export function CaseStudies() {
@@ -107,13 +164,14 @@ export function CaseStudies() {
               Proven <span className="text-primary">Results</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Real automation success stories using n8n, Make, and GoHighLevel across the region.
+              Real automation and AI success stories using n8n, Make, GoHighLevel, and AI solutions across the region.
             </p>
           </div>
-          <div className="hidden md:flex gap-2">
+          <div className="hidden md:flex gap-2 flex-wrap">
             <Badge variant="outline" className={platformColors["n8n"]}>n8n</Badge>
             <Badge variant="outline" className={platformColors["Make"]}>Make</Badge>
             <Badge variant="outline" className={platformColors["GoHighLevel"]}>GoHighLevel</Badge>
+            <Badge variant="outline" className={platformColors["AI"]}>AI</Badge>
           </div>
         </div>
 
