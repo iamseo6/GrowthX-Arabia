@@ -1,10 +1,10 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactSubmissionSchema, insertNewsletterSchema } from "@shared/schema";
+import { insertContactSubmissionSchema, insertNewsletterSchema, insertLeadSchema } from "@shared/schema";
 import { fromError } from "zod-validation-error";
 import { isAuthenticated } from "./auth";
-import { sendContactNotification } from "./email";
+import { sendContactNotification, sendLeadNotification } from "./email";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -67,6 +67,48 @@ export async function registerRoutes(
       }
       console.error("Newsletter error:", error);
       return res.status(500).json({ error: "Failed to subscribe" });
+    }
+  });
+
+  app.post("/api/leads", async (req, res) => {
+    try {
+      console.log("Received lead submission:", req.body);
+      const validationResult = insertLeadSchema.safeParse(req.body);
+      
+      if (!validationResult.success) {
+        console.error("Lead validation failed:", validationResult.error);
+        return res.status(400).json({
+          error: fromError(validationResult.error).toString(),
+        });
+      }
+
+      const lead = await storage.createLead(validationResult.data);
+      console.log("Successfully saved lead:", lead);
+      
+      const notifyEmail = process.env.NOTIFICATION_EMAIL;
+      if (notifyEmail) {
+        try {
+          await sendLeadNotification(validationResult.data, notifyEmail);
+          console.log("Lead notification sent to:", notifyEmail);
+        } catch (emailError) {
+          console.error("Failed to send lead notification:", emailError);
+        }
+      }
+      
+      return res.status(201).json(lead);
+    } catch (error) {
+      console.error("Error creating lead:", error);
+      return res.status(500).json({ error: "Failed to submit lead form" });
+    }
+  });
+
+  app.get("/api/leads", isAuthenticated, async (_req, res) => {
+    try {
+      const leads = await storage.getLeads();
+      return res.json(leads);
+    } catch (error) {
+      console.error("Error fetching leads:", error);
+      return res.status(500).json({ error: "Failed to fetch leads" });
     }
   });
 

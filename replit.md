@@ -36,6 +36,14 @@ Individual service detail pages accessible at `/services/:slug`:
 - AI Automated Google Ads (`/services/ai-google-ads`) - PPC campaign management
 - AI Automated Local SEO (`/services/ai-local-seo`) - GBP optimization, citations
 
+### Lead Generation Funnel
+Multi-step lead capture form at `/get-started`:
+- **4 Steps**: Service selection, Company details, Project requirements, Contact info
+- **Conversion Elements**: Progress indicators, trust badges, social proof
+- **Validation**: Client-side validation with disabled buttons, server-side Zod validation
+- **Email Notifications**: Sends lead details to NOTIFICATION_EMAIL via Resend
+- **Bilingual**: Full English/Arabic support with RTL layout
+
 ### Internationalization (i18n)
 - **Languages**: English (en) and Arabic (ar)
 - **RTL Support**: Browser-native RTL handling via `dir="rtl"` on the HTML element
@@ -53,6 +61,8 @@ Key API endpoints:
 - `POST /api/contact` - Submit contact form (public)
 - `GET /api/contact` - Retrieve submissions (authenticated)
 - `POST /api/newsletter` - Newsletter signup (public)
+- `POST /api/leads` - Submit lead funnel form (public)
+- `GET /api/leads` - Retrieve leads (authenticated)
 - `POST /api/login` / `POST /api/logout` - Authentication
 
 ### Data Storage
@@ -64,6 +74,7 @@ Database tables:
 - `users` - Admin user accounts with UUID primary keys
 - `contact_submissions` - Contact form entries with timestamps
 - `newsletter_subscribers` - Email subscriptions
+- `leads` - Lead funnel submissions with service interest, company info, and contact details
 
 ### Authentication Flow
 - Session-based authentication using cookies
@@ -89,7 +100,9 @@ Database tables:
 
 ### Email Notifications
 - **Provider**: Resend (via Replit integration)
-- **Trigger**: Contact form submissions send email notification to NOTIFICATION_EMAIL
+- **Triggers**: 
+  - Contact form submissions send email to NOTIFICATION_EMAIL
+  - Lead funnel submissions send detailed lead info to NOTIFICATION_EMAIL
 - **Note**: Requires domain verification in Resend dashboard for the "from" email address
 
 ### Third-Party Libraries

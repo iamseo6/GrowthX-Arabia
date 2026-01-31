@@ -48,3 +48,28 @@ export const insertNewsletterSchema = createInsertSchema(newsletterSubscribers).
 
 export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
 export type NewsletterSubscriber = typeof newsletterSubscribers.$inferSelect;
+
+export const leads = pgTable("leads", {
+  id: serial("id").primaryKey(),
+  selectedService: text("selected_service").notNull(),
+  companyName: text("company_name").notNull(),
+  website: text("website"),
+  industry: text("industry").notNull(),
+  budgetRange: text("budget_range").notNull(),
+  timeline: text("timeline").notNull(),
+  projectDescription: text("project_description"),
+  firstName: text("first_name").notNull(),
+  lastName: text("last_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone"),
+  preferWhatsApp: text("prefer_whatsapp").default("no"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertLeadSchema = createInsertSchema(leads).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type Lead = typeof leads.$inferSelect;
+export type InsertLead = z.infer<typeof insertLeadSchema>;

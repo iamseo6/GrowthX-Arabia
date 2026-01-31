@@ -73,3 +73,56 @@ export async function sendContactNotification(submission: {
     throw error;
   }
 }
+
+export async function sendLeadNotification(lead: {
+  selectedService: string;
+  companyName: string;
+  website?: string | null;
+  industry: string;
+  budgetRange: string;
+  timeline: string;
+  projectDescription?: string | null;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string | null;
+  preferWhatsApp?: string | null;
+}, notifyEmail: string) {
+  try {
+    const { client, fromEmail } = await getResendClient();
+    const fullName = `${lead.firstName} ${lead.lastName}`;
+    
+    const result = await client.emails.send({
+      from: fromEmail,
+      to: notifyEmail,
+      subject: `🔥 New Lead: ${fullName} - ${lead.selectedService}`,
+      html: `
+        <h2>New Lead from Get Started Funnel</h2>
+        <h3>Contact Information</h3>
+        <p><strong>Name:</strong> ${fullName}</p>
+        <p><strong>Email:</strong> ${lead.email}</p>
+        ${lead.phone ? `<p><strong>Phone:</strong> ${lead.phone} ${lead.preferWhatsApp === 'yes' ? '(Prefers WhatsApp)' : ''}</p>` : ''}
+        
+        <h3>Company Details</h3>
+        <p><strong>Company:</strong> ${lead.companyName}</p>
+        ${lead.website ? `<p><strong>Website:</strong> ${lead.website}</p>` : ''}
+        <p><strong>Industry:</strong> ${lead.industry}</p>
+        
+        <h3>Project Requirements</h3>
+        <p><strong>Service Interested:</strong> ${lead.selectedService}</p>
+        <p><strong>Budget Range:</strong> ${lead.budgetRange}</p>
+        <p><strong>Timeline:</strong> ${lead.timeline}</p>
+        ${lead.projectDescription ? `<p><strong>Project Description:</strong></p><p>${lead.projectDescription}</p>` : ''}
+        
+        <hr>
+        <p style="color: #666; font-size: 12px;">This lead was submitted through the GrowthX Arabia Get Started funnel.</p>
+      `
+    });
+    
+    console.log('Lead notification sent:', result);
+    return result;
+  } catch (error) {
+    console.error('Failed to send lead notification:', error);
+    throw error;
+  }
+}
