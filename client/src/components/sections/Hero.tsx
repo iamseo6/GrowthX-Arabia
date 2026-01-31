@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, Bot, Zap, Network } from "lucide-react";
 import heroImage from "@assets/generated_images/abstract_3d_ai_network_visualization_with_glowing_nodes.png";
 import { useLanguage } from "@/lib/language-context";
@@ -47,12 +48,12 @@ export function Hero() {
           </p>
 
           <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? "sm:flex-row-reverse" : ""}`}>
-            <a href="#contact">
+            <Link href="/get-started">
               <Button size="lg" className={`bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-md px-8 h-14 rounded-xl w-full sm:w-auto ${isRTL ? "flex-row-reverse" : ""}`} data-testid="button-book-consultation">
                 {t("hero.cta1")}
                 <ArrowIcon className={`h-5 w-5 ${isRTL ? "mr-2" : "ml-2"}`} />
               </Button>
-            </a>
+            </Link>
             <a href="#case-studies">
               <Button size="lg" variant="outline" className="border-white/10 text-foreground hover:bg-white/5 font-medium text-md px-8 h-14 rounded-xl w-full sm:w-auto" data-testid="button-see-work">
                 {t("hero.cta2")}

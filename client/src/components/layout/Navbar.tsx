@@ -51,11 +51,11 @@ export function Navbar() {
               <Globe className="h-4 w-4" />
               {language === "en" ? "EN" : "AR"}
             </Button>
-            <a href="#contact">
+            <Link href="/get-started">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold" data-testid="button-get-started">
                 {t("nav.getStarted")}
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -94,11 +94,11 @@ export function Navbar() {
               <Globe className="h-4 w-4" />
               {language === "en" ? "EN" : "AR"}
             </Button>
-            <a href="#contact" className="w-full" onClick={() => setIsOpen(false)}>
+            <Link href="/get-started" className="w-full" onClick={() => setIsOpen(false)}>
               <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
                 {t("nav.getStarted")}
               </Button>
-            </a>
+            </Link>
           </div>
         </motion.div>
       )}
