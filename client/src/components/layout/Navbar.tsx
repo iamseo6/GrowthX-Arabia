@@ -10,7 +10,7 @@ export function Navbar() {
   const { language, setLanguage, t, isRTL } = useLanguage();
 
   const navItems = [
-    { key: "nav.services", href: "#services" },
+    { key: "nav.services", href: "/services" },
     { key: "nav.process", href: "#process" },
     { key: "nav.caseStudies", href: "#case-studies" },
     { key: "nav.about", href: "#about" },
@@ -30,14 +30,25 @@ export function Navbar() {
 
         <div className={`hidden md:flex items-center gap-8 ${isRTL ? "flex-row-reverse" : ""}`}>
           {navItems.map((item) => (
-            <a 
-              key={item.key} 
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              data-testid={`nav-${item.key}`}
-            >
-              {t(item.key)}
-            </a>
+            item.href.startsWith("/") ? (
+              <Link
+                key={item.key}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                data-testid={`nav-${item.key}`}
+              >
+                {t(item.key)}
+              </Link>
+            ) : (
+              <a 
+                key={item.key} 
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                data-testid={`nav-${item.key}`}
+              >
+                {t(item.key)}
+              </a>
+            )
           ))}
           
           <div className={`flex items-center gap-4 ${isRTL ? "pr-4 border-r" : "pl-4 border-l"} border-white/10`}>
@@ -76,14 +87,25 @@ export function Navbar() {
         >
           <div className={`flex flex-col p-4 gap-4 ${isRTL ? "items-end text-right" : ""}`}>
             {navItems.map((item) => (
-              <a 
-                key={item.key} 
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {t(item.key)}
-              </a>
+              item.href.startsWith("/") ? (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t(item.key)}
+                </Link>
+              ) : (
+                <a 
+                  key={item.key} 
+                  href={item.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t(item.key)}
+                </a>
+              )
             ))}
             <Button
               variant="ghost"

@@ -1,9 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Workflow, Bot, Users, BarChart3, Search, Target, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { useLanguage } from "@/lib/language-context";
+import { Button } from "@/components/ui/button";
+
+import serviceWorkflowAutomation from "@/assets/images/service-workflow-automation.png";
+import serviceAiChatbots from "@/assets/images/service-ai-chatbots.png";
+import serviceCrmAutomation from "@/assets/images/service-crm-automation.png";
+import serviceDataAnalytics from "@/assets/images/service-data-analytics.png";
+import serviceAiSeo from "@/assets/images/service-ai-seo.png";
+import serviceAiGoogleAds from "@/assets/images/service-ai-google-ads.png";
+import serviceAiLocalSeo from "@/assets/images/service-ai-local-seo.png";
 
 const services = [
   {
@@ -12,10 +21,10 @@ const services = [
     titleAr: "أتمتة سير العمل",
     description: "Automate repetitive tasks and connect your entire tech stack with powerful integrations using n8n, Make, and custom solutions.",
     descriptionAr: "أتمتة المهام المتكررة وربط جميع أنظمتك التقنية مع تكاملات قوية باستخدام n8n و Make والحلول المخصصة.",
-    icon: Workflow,
+    image: serviceWorkflowAutomation,
     color: "from-orange-500 to-red-500",
-    bgColor: "bg-orange-500/10",
-    borderColor: "border-orange-500/30",
+    category: "Automation",
+    categoryAr: "الأتمتة",
   },
   {
     slug: "ai-chatbots",
@@ -23,10 +32,10 @@ const services = [
     titleAr: "روبوتات الدردشة والوكلاء الذكية",
     description: "Deploy intelligent conversational AI that handles customer inquiries, qualifies leads, and provides 24/7 support.",
     descriptionAr: "نشر ذكاء اصطناعي محادثي ذكي يتعامل مع استفسارات العملاء ويؤهل العملاء المحتملين ويوفر دعماً على مدار الساعة.",
-    icon: Bot,
+    image: serviceAiChatbots,
     color: "from-purple-500 to-pink-500",
-    bgColor: "bg-purple-500/10",
-    borderColor: "border-purple-500/30",
+    category: "AI Solutions",
+    categoryAr: "حلول الذكاء الاصطناعي",
   },
   {
     slug: "crm-automation",
@@ -34,10 +43,10 @@ const services = [
     titleAr: "أتمتة إدارة علاقات العملاء",
     description: "Supercharge your GoHighLevel or existing CRM with automated workflows, lead nurturing, and sales pipeline optimization.",
     descriptionAr: "عزز GoHighLevel أو نظام CRM الحالي لديك بسير عمل آلي ورعاية العملاء المحتملين وتحسين خط أنابيب المبيعات.",
-    icon: Users,
+    image: serviceCrmAutomation,
     color: "from-green-500 to-emerald-500",
-    bgColor: "bg-green-500/10",
-    borderColor: "border-green-500/30",
+    category: "CRM",
+    categoryAr: "إدارة العملاء",
   },
   {
     slug: "data-analytics",
@@ -45,10 +54,10 @@ const services = [
     titleAr: "تحليلات البيانات والرؤى",
     description: "Transform raw data into actionable insights with automated reporting, dashboards, and predictive analytics.",
     descriptionAr: "حوّل البيانات الخام إلى رؤى قابلة للتنفيذ مع التقارير الآلية ولوحات المعلومات والتحليلات التنبؤية.",
-    icon: BarChart3,
+    image: serviceDataAnalytics,
     color: "from-blue-500 to-cyan-500",
-    bgColor: "bg-blue-500/10",
-    borderColor: "border-blue-500/30",
+    category: "Analytics",
+    categoryAr: "التحليلات",
   },
   {
     slug: "ai-seo",
@@ -56,10 +65,10 @@ const services = [
     titleAr: "تحسين محركات البحث بالذكاء الاصطناعي",
     description: "Leverage AI-powered SEO strategies to boost your organic rankings, optimize content, and drive sustainable traffic growth.",
     descriptionAr: "استفد من استراتيجيات تحسين محركات البحث المدعومة بالذكاء الاصطناعي لتعزيز ترتيبك العضوي وتحسين المحتوى ودفع نمو حركة المرور المستدامة.",
-    icon: Search,
+    image: serviceAiSeo,
     color: "from-yellow-500 to-orange-500",
-    bgColor: "bg-yellow-500/10",
-    borderColor: "border-yellow-500/30",
+    category: "SEO",
+    categoryAr: "تحسين محركات البحث",
   },
   {
     slug: "ai-google-ads",
@@ -67,10 +76,10 @@ const services = [
     titleAr: "إعلانات جوجل الآلية بالذكاء الاصطناعي",
     description: "Maximize your PPC performance with AI-driven campaign management, smart bidding, and automated optimization.",
     descriptionAr: "حقق أقصى أداء لإعلانات الدفع لكل نقرة مع إدارة الحملات المدعومة بالذكاء الاصطناعي والمزايدة الذكية والتحسين الآلي.",
-    icon: Target,
+    image: serviceAiGoogleAds,
     color: "from-red-500 to-pink-500",
-    bgColor: "bg-red-500/10",
-    borderColor: "border-red-500/30",
+    category: "Paid Ads",
+    categoryAr: "الإعلانات المدفوعة",
   },
   {
     slug: "ai-local-seo",
@@ -78,10 +87,10 @@ const services = [
     titleAr: "تحسين البحث المحلي بالذكاء الاصطناعي",
     description: "Dominate local search results with AI-powered Google Business Profile optimization, citations, and review management.",
     descriptionAr: "هيمن على نتائج البحث المحلي مع تحسين ملف Google Business Profile المدعوم بالذكاء الاصطناعي والاستشهادات وإدارة المراجعات.",
-    icon: MapPin,
+    image: serviceAiLocalSeo,
     color: "from-teal-500 to-green-500",
-    bgColor: "bg-teal-500/10",
-    borderColor: "border-teal-500/30",
+    category: "Local SEO",
+    categoryAr: "البحث المحلي",
   },
 ];
 
@@ -125,45 +134,47 @@ export default function Services() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                className="group"
               >
-                <Link href={`/services/${service.slug}`}>
-                  <div 
-                    className={`group relative h-full rounded-2xl overflow-hidden glass-card border ${service.borderColor} hover:border-primary/50 transition-all duration-300 cursor-pointer`}
-                    data-testid={`service-card-${service.slug}`}
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                    
-                    <div className="p-8">
-                      <div className={`w-16 h-16 rounded-2xl ${service.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                        <service.icon className={`h-8 w-8 bg-gradient-to-br ${service.color} bg-clip-text`} style={{ color: 'transparent', backgroundClip: 'text', WebkitBackgroundClip: 'text' }} />
-                        <service.icon className={`h-8 w-8 absolute`} style={{ 
-                          background: `linear-gradient(to bottom right, var(--tw-gradient-stops))`,
-                          WebkitBackgroundClip: 'text',
-                          color: service.color.includes('orange') ? '#f97316' : 
-                                 service.color.includes('purple') ? '#a855f7' :
-                                 service.color.includes('green') ? '#22c55e' :
-                                 service.color.includes('blue') ? '#3b82f6' :
-                                 service.color.includes('yellow') ? '#eab308' :
-                                 service.color.includes('red') ? '#ef4444' :
-                                 service.color.includes('teal') ? '#14b8a6' : '#00d4ff'
-                        }} />
-                      </div>
-
-                      <h3 className="text-xl font-bold font-heading mb-3 text-white group-hover:text-primary transition-colors">
-                        {language === "ar" ? service.titleAr : service.title}
-                      </h3>
-                      
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                        {language === "ar" ? service.descriptionAr : service.description}
-                      </p>
-
-                      <div className="flex items-center gap-2 text-primary font-medium text-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                        <span>{language === "ar" ? "اعرف المزيد" : "Learn More"}</span>
-                        <ArrowRight className="h-4 w-4 rtl:rotate-180" />
-                      </div>
+                <div 
+                  className="relative h-full rounded-2xl overflow-hidden glass-card border border-white/5 hover:border-primary/50 transition-all duration-300"
+                  data-testid={`service-card-${service.slug}`}
+                >
+                  <div className="h-48 w-full relative overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={language === "ar" ? service.titleAr : service.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${service.color} text-white`}>
+                        {language === "ar" ? service.categoryAr : service.category}
+                      </span>
                     </div>
                   </div>
-                </Link>
+
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold font-heading mb-3 text-white group-hover:text-primary transition-colors">
+                      {language === "ar" ? service.titleAr : service.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-3">
+                      {language === "ar" ? service.descriptionAr : service.description}
+                    </p>
+
+                    <Link href={`/services/${service.slug}`}>
+                      <Button 
+                        variant="outline" 
+                        className="w-full gap-2 border-white/10 hover:bg-primary hover:text-white hover:border-primary transition-all"
+                        data-testid={`button-learn-more-${service.slug}`}
+                      >
+                        {language === "ar" ? "اعرف المزيد" : "Learn More"}
+                        <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -185,9 +196,9 @@ export default function Services() {
                 }
               </p>
               <Link href="/get-started">
-                <button className="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors" data-testid="button-get-started-cta">
+                <Button className="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-medium" data-testid="button-get-started-cta">
                   {language === "ar" ? "ابدأ الآن" : "Get Started"}
-                </button>
+                </Button>
               </Link>
             </div>
           </motion.div>
