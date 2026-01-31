@@ -15,6 +15,7 @@ import TermsOfService from "@/pages/TermsOfService";
 import CookiePolicy from "@/pages/CookiePolicy";
 import Sitemap from "@/pages/Sitemap";
 import ServiceDetail from "@/pages/ServiceDetail";
+import Services from "@/pages/Services";
 import GetStarted from "@/pages/GetStarted";
 import NotFound from "@/pages/not-found";
 
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/cookie-policy" component={CookiePolicy} />
       <Route path="/sitemap" component={Sitemap} />
+      <Route path="/services" component={Services} />
       <Route path="/services/:slug" component={ServiceDetail} />
       <Route path="/get-started" component={GetStarted} />
       <ProtectedRoute path="/admin" component={Admin} />
