@@ -43,10 +43,10 @@ export function Footer() {
 
   const footerLinks = language === "ar" ? {
     "الشركة": [
-      { name: "عنّا", href: "#about" },
-      { name: "دراسات الحالة", href: "#case-studies" },
-      { name: "العملية", href: "#process" },
-      { name: "تواصل معنا", href: "#contact" },
+      { name: "عنّا", href: "/#about" },
+      { name: "دراسات الحالة", href: "/#case-studies" },
+      { name: "العملية", href: "/#process" },
+      { name: "تواصل معنا", href: "/#contact" },
     ],
     "الخدمات": [
       { name: "أتمتة سير العمل", href: "/services/workflow-automation" },
@@ -65,10 +65,10 @@ export function Footer() {
     ],
   } : {
     Company: [
-      { name: "About Us", href: "#about" },
-      { name: "Case Studies", href: "#case-studies" },
-      { name: "Process", href: "#process" },
-      { name: "Contact", href: "#contact" },
+      { name: "About Us", href: "/#about" },
+      { name: "Case Studies", href: "/#case-studies" },
+      { name: "Process", href: "/#process" },
+      { name: "Contact", href: "/#contact" },
     ],
     Services: [
       { name: "Workflow Automation", href: "/services/workflow-automation" },
