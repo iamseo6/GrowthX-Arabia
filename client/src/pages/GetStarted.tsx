@@ -24,7 +24,8 @@ import {
   Bot,
   Search,
   Target,
-  MapPin
+  MapPin,
+  HelpCircle
 } from "lucide-react";
 
 const translations = {
@@ -53,7 +54,8 @@ const translations = {
       { id: "data-analytics", name: "Data Analytics", desc: "Business intelligence", icon: "BarChart3" },
       { id: "ai-seo", name: "AI Automated SEO", desc: "SEO automation", icon: "Search" },
       { id: "ai-google-ads", name: "AI Google Ads", desc: "PPC management", icon: "Target" },
-      { id: "ai-local-seo", name: "AI Local SEO", desc: "GBP optimization", icon: "MapPin" }
+      { id: "ai-local-seo", name: "AI Local SEO", desc: "GBP optimization", icon: "MapPin" },
+      { id: "explore-options", name: "Explore Options / Custom Solution", desc: "Not sure? Let's discuss", icon: "HelpCircle" }
     ],
     industries: ["E-commerce", "Healthcare", "Real Estate", "Finance", "Retail", "Manufacturing", "Technology", "Other"],
     budgetRanges: ["$1,000 - $5,000", "$5,000 - $15,000", "$15,000 - $50,000", "$50,000+"],
@@ -99,7 +101,8 @@ const translations = {
       { id: "data-analytics", name: "تحليلات البيانات", desc: "ذكاء الأعمال", icon: "BarChart3" },
       { id: "ai-seo", name: "SEO الآلي بالذكاء الاصطناعي", desc: "أتمتة SEO", icon: "Search" },
       { id: "ai-google-ads", name: "إعلانات جوجل الآلية", desc: "إدارة PPC", icon: "Target" },
-      { id: "ai-local-seo", name: "SEO المحلي الآلي", desc: "تحسين GBP", icon: "MapPin" }
+      { id: "ai-local-seo", name: "SEO المحلي الآلي", desc: "تحسين GBP", icon: "MapPin" },
+      { id: "explore-options", name: "استكشف الخيارات / حل مخصص", desc: "غير متأكد؟ دعنا نناقش", icon: "HelpCircle" }
     ],
     industries: ["التجارة الإلكترونية", "الرعاية الصحية", "العقارات", "المالية", "التجزئة", "التصنيع", "التكنولوجيا", "أخرى"],
     budgetRanges: ["1,000$ - 5,000$", "5,000$ - 15,000$", "15,000$ - 50,000$", "+50,000$"],
@@ -129,7 +132,8 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   BarChart3,
   Search,
   Target,
-  MapPin
+  MapPin,
+  HelpCircle
 };
 
 export default function GetStarted() {
