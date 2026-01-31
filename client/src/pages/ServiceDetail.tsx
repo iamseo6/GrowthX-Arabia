@@ -62,7 +62,7 @@ export default function ServiceDetail() {
             transition={{ duration: 0.6 }}
             className={`max-w-4xl mx-auto ${isRTL ? "text-right" : "text-center"}`}
           >
-            <Link href="/#services">
+            <Link href="/services">
               <span className={`inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-6 cursor-pointer ${isRTL ? "flex-row-reverse" : ""}`}>
                 {isRTL ? <ArrowRight className="h-4 w-4" /> : <ArrowLeft className="h-4 w-4" />}
                 {isRTL ? "العودة للخدمات" : "Back to Services"}
