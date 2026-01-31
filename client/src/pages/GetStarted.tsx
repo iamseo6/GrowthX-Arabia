@@ -57,7 +57,7 @@ const translations = {
       { id: "ai-local-seo", name: "AI Local SEO", desc: "GBP optimization", icon: "MapPin" },
       { id: "explore-options", name: "Explore Options / Custom Solution", desc: "Not sure? Let's discuss", icon: "HelpCircle" }
     ],
-    industries: ["E-commerce", "Healthcare", "Real Estate", "Finance", "Retail", "Manufacturing", "Technology", "Other"],
+    industries: ["E-commerce", "Healthcare", "Real Estate", "Finance", "Retail", "Manufacturing", "Technology", "Automotive", "Other"],
     budgetRanges: ["$1,000 - $5,000", "$5,000 - $15,000", "$15,000 - $50,000", "$50,000+"],
     timelines: ["ASAP (Within 2 weeks)", "1-3 months", "3-6 months", "Just exploring"],
     companyName: "Company Name",
@@ -104,7 +104,7 @@ const translations = {
       { id: "ai-local-seo", name: "SEO المحلي الآلي", desc: "تحسين GBP", icon: "MapPin" },
       { id: "explore-options", name: "استكشف الخيارات / حل مخصص", desc: "غير متأكد؟ دعنا نناقش", icon: "HelpCircle" }
     ],
-    industries: ["التجارة الإلكترونية", "الرعاية الصحية", "العقارات", "المالية", "التجزئة", "التصنيع", "التكنولوجيا", "أخرى"],
+    industries: ["التجارة الإلكترونية", "الرعاية الصحية", "العقارات", "المالية", "التجزئة", "التصنيع", "التكنولوجيا", "السيارات", "أخرى"],
     budgetRanges: ["1,000$ - 5,000$", "5,000$ - 15,000$", "15,000$ - 50,000$", "+50,000$"],
     timelines: ["فوراً (خلال أسبوعين)", "1-3 أشهر", "3-6 أشهر", "أستكشف فقط"],
     companyName: "اسم الشركة",
