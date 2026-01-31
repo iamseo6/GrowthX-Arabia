@@ -169,9 +169,11 @@ export function CaseStudies() {
         </div>
         
         <div className="mt-12 text-center">
-          <Button variant="outline" className="gap-2 border-white/10 hover:bg-white/5">
-            View All Case Studies <ArrowUpRight className="h-4 w-4" />
-          </Button>
+          <a href="/case-studies">
+            <Button variant="outline" className="gap-2 border-white/10 hover:bg-white/5">
+              View All Case Studies <ArrowUpRight className="h-4 w-4" />
+            </Button>
+          </a>
         </div>
       </div>
     </section>

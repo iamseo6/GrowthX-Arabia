@@ -12,7 +12,7 @@ export function Navbar() {
   const navItems = [
     { key: "nav.services", href: "/services" },
     { key: "nav.process", href: "#process" },
-    { key: "nav.caseStudies", href: "#case-studies" },
+    { key: "nav.caseStudies", href: "/case-studies" },
     { key: "nav.about", href: "#about" },
     { key: "nav.contact", href: "#contact" },
   ];
