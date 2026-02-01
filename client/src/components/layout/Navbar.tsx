@@ -13,6 +13,7 @@ export function Navbar() {
     { key: "nav.services", href: "/services" },
     { key: "nav.process", href: "#process" },
     { key: "nav.caseStudies", href: "/case-studies" },
+    { key: "nav.blog", href: "/blog" },
     { key: "nav.about", href: "#about" },
     { key: "nav.contact", href: "#contact" },
   ];

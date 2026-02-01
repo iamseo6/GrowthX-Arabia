@@ -45,6 +45,7 @@ export function Footer() {
     "الشركة": [
       { name: "عنّا", href: "/#about" },
       { name: "دراسات الحالة", href: "/case-studies" },
+      { name: "المدونة", href: "/blog" },
       { name: "العملية", href: "/#process" },
       { name: "تواصل معنا", href: "/#contact" },
     ],
@@ -68,6 +69,7 @@ export function Footer() {
     Company: [
       { name: "About Us", href: "/#about" },
       { name: "Case Studies", href: "/case-studies" },
+      { name: "Blog", href: "/blog" },
       { name: "Process", href: "/#process" },
       { name: "Contact", href: "/#contact" },
     ],
