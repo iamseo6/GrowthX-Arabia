@@ -145,7 +145,7 @@ As AI technology continues to evolve, businesses in the Middle East have a uniqu
     categoryAr: "أتمتة الذكاء الاصطناعي",
     author: "GrowthX Arabia Team",
     authorAr: "فريق GrowthX Arabia",
-    date: "2024-01-15",
+    date: "2026-01-15",
     readTime: "8 min read",
     readTimeAr: "8 دقائق للقراءة",
     image: "blog-ai-middle-east",
@@ -153,7 +153,7 @@ As AI technology continues to evolve, businesses in the Middle East have a uniqu
   {
     slug: "5-workflow-automations-every-business-needs",
     title: "5 Workflow Automations Every Business Should Implement in 2026",
-    titleAr: "5 أتمتات لسير العمل يجب أن تنفذها كل شركة في 2024",
+    titleAr: "5 أتمتات لسير العمل يجب أن تنفذها كل شركة في 2026",
     excerpt:
       "Learn the essential workflow automations that can save your team hours each week and significantly improve your business operations.",
     excerptAr:
@@ -251,7 +251,7 @@ Don't try to automate everything at once. Pick one workflow that causes the most
 Ready to transform your business operations? Contact us for a free automation assessment.
     `,
     contentAr: `
-## لماذا أتمتة سير العمل مهمة في 2024
+## لماذا أتمتة سير العمل مهمة في 2026
 
 في بيئة الأعمال السريعة اليوم، العمليات اليدوية ليست فقط غير فعالة - إنها عيب تنافسي. الشركات التي تتبنى أتمتة سير العمل تشهد تحسينات بنسبة 30-50% في الكفاءة التشغيلية، مما يحرر فرقها للتركيز على العمل الاستراتيجي الذي يدفع النمو.
 
@@ -346,7 +346,7 @@ Ready to transform your business operations? Contact us for a free automation as
     categoryAr: "نصائح سير العمل",
     author: "GrowthX Arabia Team",
     authorAr: "فريق GrowthX Arabia",
-    date: "2024-01-22",
+    date: "2026-01-22",
     readTime: "10 min read",
     readTimeAr: "10 دقائق للقراءة",
     image: "blog-workflow-automation",
@@ -610,7 +610,7 @@ Contact GrowthX Arabia to learn how we can automate your Arabic SEO and drive me
     categoryAr: "تحسين محركات البحث",
     author: "GrowthX Arabia Team",
     authorAr: "فريق GrowthX Arabia",
-    date: "2024-02-01",
+    date: "2026-02-01",
     readTime: "12 min read",
     readTimeAr: "12 دقائق للقراءة",
     image: "blog-ai-seo-arabic",
