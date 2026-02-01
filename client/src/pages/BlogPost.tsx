@@ -104,9 +104,22 @@ export default function BlogPost() {
                     day: "numeric",
                   })}
                 </span>
-                <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  {isRTL ? post.readTimeAr : post.readTime}
+                <span className="flex items-center gap-2 relative group/time">
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  >
+                    <Clock className="w-4 h-4 text-primary" />
+                  </motion.div>
+                  <span className="relative">
+                    {isRTL ? post.readTimeAr : post.readTime}
+                    <motion.span 
+                      className="absolute -bottom-0.5 left-0 h-0.5 bg-primary/40 rounded-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
+                    />
+                  </span>
                 </span>
               </div>
             </div>
