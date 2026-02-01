@@ -164,6 +164,31 @@ export default function BlogPost() {
                   </span>
                 </span>
               </div>
+
+              <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+                <span className="text-sm text-gray-500 mr-2">
+                  {isRTL ? "مشاركة:" : "Share:"}
+                </span>
+                {shareActions.map((action) => (
+                  <a
+                    key={action.name}
+                    href={action.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-2 rounded-full bg-white/5 text-gray-400 ${action.color} transition-all hover:bg-white/10`}
+                    title={`${isRTL ? "مشاركة على" : "Share on"} ${action.name}`}
+                  >
+                    <action.icon className="w-4 h-4" />
+                  </a>
+                ))}
+                <button
+                  onClick={copyToClipboard}
+                  className="p-2 rounded-full bg-white/5 text-gray-400 hover:text-primary transition-all hover:bg-white/10"
+                  title={isRTL ? "نسخ الرابط" : "Copy Link"}
+                >
+                  <LinkIcon className="w-4 h-4" />
+                </button>
+              </div>
             </div>
 
             <div className="relative rounded-2xl overflow-hidden mb-12">
