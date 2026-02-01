@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Link, useParams, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowLeft, ArrowRight, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Calendar, Clock, ArrowLeft, ArrowRight, User, Sparkles } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import { getBlogPostBySlug, blogPosts } from "@/lib/blog-data";
 import { Navbar } from "@/components/layout/Navbar";
@@ -182,6 +183,33 @@ export default function BlogPost() {
                 );
               })}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5 border border-primary/20 text-center"
+            >
+              <div className="inline-flex p-3 rounded-full bg-primary/10 mb-6">
+                <Sparkles className="w-6 h-6 text-primary" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                {isRTL 
+                  ? "هل أنت مستعد لأتمتة أعمالك؟" 
+                  : "Ready to Automate Your Business?"}
+              </h2>
+              <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+                {isRTL
+                  ? "انضم إلى الشركات الرائدة في المنطقة التي تستخدم الذكاء الاصطناعي لتحقيق كفاءة أعلى بـ 10 أضعاف."
+                  : "Join leading businesses across the region using AI to achieve 10x efficiency."}
+              </p>
+              <Link href="/get-started">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 py-6 text-lg rounded-xl shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95" data-testid="blog-cta-get-started">
+                  {isRTL ? "ابدأ الآن" : "Get Started Now"}
+                </Button>
+              </Link>
+            </motion.div>
           </motion.div>
         </article>
 
