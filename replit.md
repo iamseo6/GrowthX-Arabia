@@ -35,6 +35,18 @@ Individual service detail pages accessible at `/services/:slug`:
 - AI Automated SEO (`/services/ai-seo`) - AI-powered SEO automation
 - AI Automated Google Ads (`/services/ai-google-ads`) - PPC campaign management
 - AI Automated Local SEO (`/services/ai-local-seo`) - GBP optimization, citations
+- AI Social Media Scheduling (`/services/ai-social-scheduling`) - Content automation
+
+### Blog Section
+Blog pages accessible at `/blog` and `/blog/:slug`:
+- **Main Blog Page** (`/blog`) - Grid of blog post cards with featured images
+- **Individual Posts** (`/blog/:slug`) - Full article with markdown-style rendering
+- **Data Source**: `lib/blog-data.ts` with full bilingual content
+- **Articles**:
+  1. How AI Automation is Transforming Business Operations in the Middle East
+  2. 5 Workflow Automations Every Business Should Implement in 2024
+  3. The Ultimate Guide to AI-Powered SEO for Arabic Markets
+- **Features**: Related posts section, category badges, reading time, author info
 
 ### Lead Generation Funnel
 Multi-step lead capture form at `/get-started`:
