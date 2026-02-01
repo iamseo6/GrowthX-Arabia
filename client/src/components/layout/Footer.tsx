@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -125,46 +126,87 @@ export function Footer() {
             </div>
           </div>
 
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title} className="space-y-6">
-              <h4 className="text-white font-heading font-bold text-lg">{title}</h4>
-              <ul className="space-y-4">
-                {links.map((link: { name: string; href: string }) => (
-                  <li key={link.name}>
-                    {link.href.startsWith("#") ? (
-                      <motion.a
-                        whileHover={{ x: 4, color: "var(--primary)" }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        href={link.href}
-                        className="text-muted-foreground text-sm transition-colors inline-block"
-                      >
-                        {link.name}
-                      </motion.a>
-                    ) : (
-                      <motion.div
-                        whileHover={{ x: 4, color: "var(--primary)" }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className="inline-block"
-                      >
-                        <Link
+          <div className="space-y-6">
+            <h4 className="text-white font-heading font-bold text-lg">
+              {language === "ar" ? "النشرة الإخبارية" : "Newsletter"}
+            </h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {language === "ar" 
+                ? "اشترك في نشرتنا الإخبارية للحصول على آخر أخبار الذكاء الاصطناعي."
+                : "Subscribe to our newsletter for the latest AI insights."}
+            </p>
+            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+              <div className="relative">
+                <input
+                  type="email"
+                  placeholder={language === "ar" ? "البريد الإلكتروني" : "Email address"}
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                />
+              </div>
+              <Button 
+                type="submit" 
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold"
+                disabled={newsletterMutation.isPending}
+              >
+                {newsletterMutation.isPending ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>
+                    {language === "ar" ? "اشترك الآن" : "Subscribe Now"}
+                    <Send className={`h-4 w-4 ${language === "ar" ? "mr-2 rotate-180" : "ml-2"}`} />
+                  </>
+                )}
+              </Button>
+            </form>
+          </div>
+
+          <div className="lg:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">
+            {Object.entries(footerLinks).map(([title, links]) => (
+              <div key={title} className="space-y-6">
+                <h4 className="text-white font-heading font-bold text-lg">{title}</h4>
+                <ul className="space-y-4">
+                  {links.map((link: { name: string; href: string }) => (
+                    <li key={link.name}>
+                      {link.href.startsWith("#") ? (
+                        <motion.a
+                          whileHover={{ x: 4, color: "var(--primary)" }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           href={link.href}
-                          className="text-muted-foreground text-sm transition-colors"
+                          className="text-muted-foreground text-sm transition-colors inline-block"
                         >
                           {link.name}
-                        </Link>
-                      </motion.div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                        </motion.a>
+                      ) : (
+                        <motion.div
+                          whileHover={{ x: 4, color: "var(--primary)" }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          className="inline-block"
+                        >
+                          <Link
+                            href={link.href}
+                            className="text-muted-foreground text-sm transition-colors"
+                          >
+                            {link.name}
+                          </Link>
+                        </motion.div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 border-t border-white/10 pt-16">
           <div className="space-y-6">
             <h4 className="text-white font-heading font-bold text-lg">
               {language === "ar" ? "تواصل معنا" : "Contact Us"}
             </h4>
-            <ul className="space-y-4">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <li className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="h-5 w-5 text-primary shrink-0" />
                 <span>
@@ -173,7 +215,7 @@ export function Footer() {
                   {language === "ar" ? "الرياض، المملكة العربية السعودية" : "Riyadh, Saudi Arabia"}
                 </span>
               </li>
-              <li>
+              <li className="space-y-3">
                 <a 
                   href="https://wa.me/15199333384" 
                   target="_blank" 
@@ -186,10 +228,10 @@ export function Footer() {
                   </svg>
                   <span dir="ltr">+1 (519) 933-3384</span>
                 </a>
-              </li>
-              <li className="flex items-center gap-3 text-muted-foreground text-sm">
-                <Mail className="h-5 w-5 text-primary shrink-0" />
-                <span>growthxarabia@gmail.com</span>
+                <div className="flex items-center gap-3 text-muted-foreground text-sm">
+                  <Mail className="h-5 w-5 text-primary shrink-0" />
+                  <span>growthxarabia@gmail.com</span>
+                </div>
               </li>
             </ul>
           </div>
