@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
@@ -13,6 +13,37 @@ export function Footer() {
   const { toast } = useToast();
   const { t, language } = useLanguage();
   const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [, setLocation] = useLocation();
+
+  const handleHashNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const hash = href.replace("/#", "#");
+    const currentPath = window.location.pathname;
+    
+    const scrollToElement = () => {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.replaceState(null, "", href);
+      }
+    };
+
+    const waitForElement = (retries = 20) => {
+      const element = document.querySelector(hash);
+      if (element) {
+        scrollToElement();
+      } else if (retries > 0) {
+        requestAnimationFrame(() => waitForElement(retries - 1));
+      }
+    };
+    
+    if (currentPath === "/") {
+      scrollToElement();
+    } else {
+      setLocation("/");
+      requestAnimationFrame(() => waitForElement());
+    }
+  };
 
   const newsletterMutation = useMutation({
     mutationFn: async (email: string) => {
@@ -174,7 +205,17 @@ export function Footer() {
                 <ul className="space-y-4">
                   {links.map((link: { name: string; href: string }) => (
                     <li key={link.name}>
-                      {link.href.startsWith("#") ? (
+                      {link.href.startsWith("/#") ? (
+                        <motion.a
+                          whileHover={{ x: 4, color: "var(--primary)" }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          href={link.href}
+                          onClick={(e) => handleHashNavigation(e, link.href)}
+                          className="text-muted-foreground text-sm transition-colors inline-block cursor-pointer"
+                        >
+                          {link.name}
+                        </motion.a>
+                      ) : link.href.startsWith("#") ? (
                         <motion.a
                           whileHover={{ x: 4, color: "var(--primary)" }}
                           transition={{ type: "spring", stiffness: 400, damping: 10 }}
