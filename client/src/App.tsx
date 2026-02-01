@@ -18,6 +18,8 @@ import ServiceDetail from "@/pages/ServiceDetail";
 import Services from "@/pages/Services";
 import CaseStudiesPage from "@/pages/CaseStudies";
 import GetStarted from "@/pages/GetStarted";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -33,6 +35,8 @@ function Router() {
       <Route path="/services/:slug" component={ServiceDetail} />
       <Route path="/case-studies" component={CaseStudiesPage} />
       <Route path="/get-started" component={GetStarted} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <ProtectedRoute path="/admin" component={Admin} />
       <Route component={NotFound} />
     </Switch>
