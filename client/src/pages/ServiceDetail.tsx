@@ -236,7 +236,7 @@ export default function ServiceDetail() {
               }
             </p>
             <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? "sm:flex-row-reverse" : ""}`}>
-              <Link href="/#contact">
+              <Link href="/get-started">
                 <Button size="lg" className={`bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14 rounded-xl ${isRTL ? "flex-row-reverse" : ""}`} data-testid="button-service-contact">
                   {isRTL ? "احجز استشارة" : "Book Consultation"}
                   <ArrowIcon className={`h-5 w-5 ${isRTL ? "mr-2" : "ml-2"}`} />
