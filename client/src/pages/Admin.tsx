@@ -1,8 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { ContactSubmission, Lead } from "@shared/schema";
+import { ContactSubmission, Lead, NewsletterSubscriber } from "@shared/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Loader2, LogOut, Users, MessageSquare, Trash2 } from "lucide-react";
+import { Loader2, LogOut, Users, MessageSquare, Trash2, Mail } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,6 +18,10 @@ export default function AdminPage() {
 
   const { data: leads, isLoading: leadsLoading } = useQuery<Lead[]>({
     queryKey: ["/api/leads"],
+  });
+
+  const { data: subscribers, isLoading: subscribersLoading } = useQuery<NewsletterSubscriber[]>({
+    queryKey: ["/api/newsletter"],
   });
 
   const deleteLeadMutation = useMutation({
@@ -50,7 +54,7 @@ export default function AdminPage() {
     }
   };
 
-  const isLoading = submissionsLoading || leadsLoading;
+  const isLoading = submissionsLoading || leadsLoading || subscribersLoading;
 
   if (isLoading) {
     return (
@@ -88,6 +92,10 @@ export default function AdminPage() {
                 <TabsTrigger value="contacts" className="data-[state=active]:bg-primary" data-testid="tab-contacts">
                   <MessageSquare className="h-4 w-4 mr-2" />
                   Contact Messages ({submissions?.length || 0})
+                </TabsTrigger>
+                <TabsTrigger value="newsletter" className="data-[state=active]:bg-primary" data-testid="tab-newsletter">
+                  <Mail className="h-4 w-4 mr-2" />
+                  Newsletter ({subscribers?.length || 0})
                 </TabsTrigger>
               </TabsList>
 
@@ -228,6 +236,46 @@ export default function AdminPage() {
                               <MessageSquare className="h-12 w-12 text-muted-foreground/30" />
                               <p className="text-lg font-medium">No messages yet</p>
                               <p className="text-sm">Contact form submissions will appear here</p>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      )}
+                    </TableBody>
+                  </Table>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="newsletter">
+                <div className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="border-white/10 hover:bg-white/5">
+                        <TableHead className="text-muted-foreground font-semibold">Email</TableHead>
+                        <TableHead className="text-muted-foreground font-semibold">Date Subscribed</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {subscribers?.map((subscriber) => (
+                        <TableRow key={subscriber.id} className="border-white/5 hover:bg-white/5 transition-colors" data-testid={`subscriber-row-${subscriber.id}`}>
+                          <TableCell className="font-medium text-white">{subscriber.email}</TableCell>
+                          <TableCell className="text-muted-foreground whitespace-nowrap">
+                            {new Date(subscriber.createdAt).toLocaleDateString(undefined, {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                      {(!subscribers || subscribers.length === 0) && (
+                        <TableRow>
+                          <TableCell colSpan={2} className="text-center py-20 text-muted-foreground">
+                            <div className="flex flex-col items-center gap-2">
+                              <Mail className="h-12 w-12 text-muted-foreground/30" />
+                              <p className="text-lg font-medium">No subscribers yet</p>
+                              <p className="text-sm">Newsletter signups will appear here</p>
                             </div>
                           </TableCell>
                         </TableRow>

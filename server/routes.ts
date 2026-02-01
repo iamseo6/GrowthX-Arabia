@@ -87,6 +87,16 @@ export async function registerRoutes(
     }
   });
 
+  app.get("/api/newsletter", isAuthenticated, async (_req, res) => {
+    try {
+      const subscribers = await storage.getNewsletterSubscribers();
+      return res.json(subscribers);
+    } catch (error) {
+      console.error("Error fetching newsletter subscribers:", error);
+      return res.status(500).json({ error: "Failed to fetch subscribers" });
+    }
+  });
+
   app.post("/api/leads", async (req, res) => {
     try {
       console.log("Received lead submission:", req.body);
