@@ -19,10 +19,14 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "ai-automation-transforming-middle-east-business",
-    title: "How AI Automation is Transforming Business Operations in the Middle East",
-    titleAr: "كيف يحول الذكاء الاصطناعي والأتمتة العمليات التجارية في الشرق الأوسط",
-    excerpt: "Discover how businesses across the GCC are leveraging AI automation to streamline operations, reduce costs, and gain competitive advantage in a rapidly evolving market.",
-    excerptAr: "اكتشف كيف تستفيد الشركات في دول الخليج من الذكاء الاصطناعي والأتمتة لتبسيط العمليات وتقليل التكاليف واكتساب ميزة تنافسية في سوق سريع التطور.",
+    title:
+      "How AI Automation is Transforming Business Operations in the Middle East",
+    titleAr:
+      "كيف يحول الذكاء الاصطناعي والأتمتة العمليات التجارية في الشرق الأوسط",
+    excerpt:
+      "Discover how businesses across the GCC are leveraging AI automation to streamline operations, reduce costs, and gain competitive advantage in a rapidly evolving market.",
+    excerptAr:
+      "اكتشف كيف تستفيد الشركات في دول الخليج من الذكاء الاصطناعي والأتمتة لتبسيط العمليات وتقليل التكاليف واكتساب ميزة تنافسية في سوق سريع التطور.",
     content: `
 ## The AI Revolution in the Middle East
 
@@ -144,14 +148,16 @@ As AI technology continues to evolve, businesses in the Middle East have a uniqu
     date: "2024-01-15",
     readTime: "8 min read",
     readTimeAr: "8 دقائق للقراءة",
-    image: "blog-ai-middle-east"
+    image: "blog-ai-middle-east",
   },
   {
     slug: "5-workflow-automations-every-business-needs",
-    title: "5 Workflow Automations Every Business Should Implement in 2024",
+    title: "5 Workflow Automations Every Business Should Implement in 2026",
     titleAr: "5 أتمتات لسير العمل يجب أن تنفذها كل شركة في 2024",
-    excerpt: "Learn the essential workflow automations that can save your team hours each week and significantly improve your business operations.",
-    excerptAr: "تعرف على أتمتات سير العمل الأساسية التي يمكن أن توفر لفريقك ساعات كل أسبوع وتحسن عمليات عملك بشكل كبير.",
+    excerpt:
+      "Learn the essential workflow automations that can save your team hours each week and significantly improve your business operations.",
+    excerptAr:
+      "تعرف على أتمتات سير العمل الأساسية التي يمكن أن توفر لفريقك ساعات كل أسبوع وتحسن عمليات عملك بشكل كبير.",
     content: `
 ## Why Workflow Automation Matters in 2024
 
@@ -343,14 +349,17 @@ Ready to transform your business operations? Contact us for a free automation as
     date: "2024-01-22",
     readTime: "10 min read",
     readTimeAr: "10 دقائق للقراءة",
-    image: "blog-workflow-automation"
+    image: "blog-workflow-automation",
   },
   {
     slug: "ultimate-guide-ai-seo-arabic-markets",
     title: "The Ultimate Guide to AI-Powered SEO for Arabic Markets",
-    titleAr: "الدليل الشامل لتحسين محركات البحث بالذكاء الاصطناعي للأسواق العربية",
-    excerpt: "Master the unique challenges and opportunities of SEO in Arabic-speaking markets with AI-powered strategies and automation.",
-    excerptAr: "أتقن التحديات والفرص الفريدة لتحسين محركات البحث في الأسواق الناطقة بالعربية مع استراتيجيات وأتمتة مدعومة بالذكاء الاصطناعي.",
+    titleAr:
+      "الدليل الشامل لتحسين محركات البحث بالذكاء الاصطناعي للأسواق العربية",
+    excerpt:
+      "Master the unique challenges and opportunities of SEO in Arabic-speaking markets with AI-powered strategies and automation.",
+    excerptAr:
+      "أتقن التحديات والفرص الفريدة لتحسين محركات البحث في الأسواق الناطقة بالعربية مع استراتيجيات وأتمتة مدعومة بالذكاء الاصطناعي.",
     content: `
 ## Understanding Arabic SEO
 
@@ -604,10 +613,10 @@ Contact GrowthX Arabia to learn how we can automate your Arabic SEO and drive me
     date: "2024-02-01",
     readTime: "12 min read",
     readTimeAr: "12 دقائق للقراءة",
-    image: "blog-ai-seo-arabic"
-  }
+    image: "blog-ai-seo-arabic",
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find(post => post.slug === slug);
+  return blogPosts.find((post) => post.slug === slug);
 }
