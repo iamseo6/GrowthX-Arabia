@@ -4,11 +4,13 @@ import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
 import { CaseStudies } from "@/components/sections/CaseStudies";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { About } from "@/components/sections/About";
 import { Features } from "@/components/sections/Features";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 
 export default function Home() {
   return (
@@ -19,6 +21,7 @@ export default function Home() {
         <Services />
         <Process />
         <CaseStudies />
+        <Testimonials />
         <About />
         <Features />
         <FAQ />
@@ -27,6 +30,7 @@ export default function Home() {
       
       <Footer />
       <BackToTop />
+      <ExitIntentPopup />
     </div>
   );
 }

@@ -97,6 +97,23 @@ export async function registerRoutes(
     }
   });
 
+  app.delete("/api/newsletter/:id", isAuthenticated, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ error: "Invalid ID" });
+      }
+      const deleted = await storage.deleteNewsletterSubscriber(id);
+      if (!deleted) {
+        return res.status(404).json({ error: "Subscriber not found" });
+      }
+      return res.json({ success: true });
+    } catch (error) {
+      console.error("Error deleting newsletter subscriber:", error);
+      return res.status(500).json({ error: "Failed to delete subscriber" });
+    }
+  });
+
   app.post("/api/leads", async (req, res) => {
     try {
       console.log("Received lead submission:", req.body);

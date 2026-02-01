@@ -11,6 +11,7 @@ export interface IStorage {
   deleteContactSubmission(id: number): Promise<boolean>;
   createNewsletterSubscriber(subscriber: InsertNewsletter): Promise<NewsletterSubscriber>;
   getNewsletterSubscribers(): Promise<NewsletterSubscriber[]>;
+  deleteNewsletterSubscriber(id: number): Promise<boolean>;
   createLead(lead: InsertLead): Promise<Lead>;
   getLeads(): Promise<Lead[]>;
   deleteLead(id: number): Promise<boolean>;
@@ -62,6 +63,11 @@ export class DatabaseStorage implements IStorage {
 
   async getNewsletterSubscribers(): Promise<NewsletterSubscriber[]> {
     return await db.select().from(newsletterSubscribers).orderBy(newsletterSubscribers.createdAt);
+  }
+
+  async deleteNewsletterSubscriber(id: number): Promise<boolean> {
+    const result = await db.delete(newsletterSubscribers).where(eq(newsletterSubscribers.id, id)).returning();
+    return result.length > 0;
   }
 
   async createLead(lead: InsertLead): Promise<Lead> {

@@ -42,6 +42,15 @@ export default function AdminPage() {
     },
   });
 
+  const deleteSubscriberMutation = useMutation({
+    mutationFn: async (id: number) => {
+      await apiRequest("DELETE", `/api/newsletter/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/newsletter"] });
+    },
+  });
+
   const handleDeleteLead = (id: number, name: string) => {
     if (window.confirm(`Are you sure you want to delete the lead from ${name}? This cannot be undone.`)) {
       deleteLeadMutation.mutate(id);
@@ -51,6 +60,12 @@ export default function AdminPage() {
   const handleDeleteContact = (id: number, name: string) => {
     if (window.confirm(`Are you sure you want to delete the message from ${name}? This cannot be undone.`)) {
       deleteContactMutation.mutate(id);
+    }
+  };
+
+  const handleDeleteSubscriber = (id: number, email: string) => {
+    if (window.confirm(`Are you sure you want to delete ${email} from the newsletter? This cannot be undone.`)) {
+      deleteSubscriberMutation.mutate(id);
     }
   };
 
@@ -83,6 +98,43 @@ export default function AdminPage() {
             </Button>
           </CardHeader>
           <CardContent>
+            {/* Stats Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 rounded-xl p-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-primary/20 rounded-lg">
+                    <Users className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Total Leads</p>
+                    <p className="text-3xl font-bold text-white" data-testid="stat-leads">{leads?.length || 0}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/20 rounded-xl p-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-cyan-500/20 rounded-lg">
+                    <MessageSquare className="h-6 w-6 text-cyan-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Contact Messages</p>
+                    <p className="text-3xl font-bold text-white" data-testid="stat-contacts">{submissions?.length || 0}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/20 rounded-xl p-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-purple-500/20 rounded-lg">
+                    <Mail className="h-6 w-6 text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Newsletter Subscribers</p>
+                    <p className="text-3xl font-bold text-white" data-testid="stat-subscribers">{subscribers?.length || 0}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <Tabs defaultValue="leads" className="w-full">
               <TabsList className="mb-6 bg-slate-800/50">
                 <TabsTrigger value="leads" className="data-[state=active]:bg-primary" data-testid="tab-leads">
@@ -252,6 +304,7 @@ export default function AdminPage() {
                       <TableRow className="border-white/10 hover:bg-white/5">
                         <TableHead className="text-muted-foreground font-semibold">Email</TableHead>
                         <TableHead className="text-muted-foreground font-semibold">Date Subscribed</TableHead>
+                        <TableHead className="text-muted-foreground font-semibold text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -267,11 +320,23 @@ export default function AdminPage() {
                               minute: '2-digit'
                             })}
                           </TableCell>
+                          <TableCell className="text-right">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => handleDeleteSubscriber(subscriber.id, subscriber.email)}
+                              disabled={deleteSubscriberMutation.isPending}
+                              className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                              data-testid={`button-delete-subscriber-${subscriber.id}`}
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </TableCell>
                         </TableRow>
                       ))}
                       {(!subscribers || subscribers.length === 0) && (
                         <TableRow>
-                          <TableCell colSpan={2} className="text-center py-20 text-muted-foreground">
+                          <TableCell colSpan={3} className="text-center py-20 text-muted-foreground">
                             <div className="flex flex-col items-center gap-2">
                               <Mail className="h-12 w-12 text-muted-foreground/30" />
                               <p className="text-lg font-medium">No subscribers yet</p>
