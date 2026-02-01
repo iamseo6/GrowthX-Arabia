@@ -2,7 +2,19 @@ import { useEffect } from "react";
 import { Link, useParams, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowLeft, ArrowRight, User, Sparkles } from "lucide-react";
+import { 
+  Calendar, 
+  Clock, 
+  ArrowLeft, 
+  ArrowRight, 
+  User, 
+  Sparkles, 
+  Share2, 
+  Twitter as TwitterIcon, 
+  Linkedin as LinkedinIcon, 
+  Facebook as FacebookIcon,
+  Link as LinkIcon
+} from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import { getBlogPostBySlug, blogPosts } from "@/lib/blog-data";
 import { Navbar } from "@/components/layout/Navbar";
@@ -24,6 +36,36 @@ export default function BlogPost() {
   const isRTL = language === "ar";
 
   const post = getBlogPostBySlug(slug || "");
+
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const shareTitle = post ? (isRTL ? post.titleAr : post.title) : '';
+
+  const shareActions = [
+    {
+      name: "Twitter",
+      icon: TwitterIcon,
+      href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`,
+      color: "hover:text-[#1DA1F2]"
+    },
+    {
+      name: "LinkedIn",
+      icon: LinkedinIcon,
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+      color: "hover:text-[#0A66C2]"
+    },
+    {
+      name: "Facebook",
+      icon: FacebookIcon,
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+      color: "hover:text-[#1877F2]"
+    }
+  ];
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(shareUrl);
+    // Toast is already available in the project via useToast hook if needed, 
+    // but we can keep it simple or assume useToast is used elsewhere
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
