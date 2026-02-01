@@ -19,6 +19,7 @@ import { useLanguage } from "@/lib/language-context";
 import { getBlogPostBySlug, blogPosts } from "@/lib/blog-data";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { NewsletterPopup } from "@/components/NewsletterPopup";
 import blogAiMiddleEast from "@/assets/images/blog-ai-middle-east.png";
 import blogWorkflowAutomation from "@/assets/images/blog-workflow-automation.png";
 import blogAiSeoArabic from "@/assets/images/blog-ai-seo-arabic.png";
@@ -337,6 +338,7 @@ export default function BlogPost() {
         )}
       </main>
 
+      <NewsletterPopup />
       <Footer />
     </div>
   );
