@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, BarChart3, Clock, Users, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "wouter";
 
 import caseStudyLeadGen from "@/assets/images/case-study-lead-gen.png";
 import caseStudyCrm from "@/assets/images/case-study-crm.png";
@@ -227,11 +228,11 @@ export function CaseStudies() {
         </div>
         
         <div className="mt-12 text-center">
-          <a href="/case-studies">
-            <Button variant="outline" className="gap-2 border-white/10 hover:bg-white/5">
+          <Link href="/case-studies">
+            <Button variant="outline" className="gap-2 border-white/10 hover:bg-white/5" data-testid="button-view-all-case-studies">
               View All Case Studies <ArrowUpRight className="h-4 w-4" />
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
