@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started - GrowthX Arabia</title>
+  <meta name="description" content="Start your AI automation journey with GrowthX Arabia. Book a free consultation and discover how we can transform your business.">
+  <meta property="og:title" content="Get Started - GrowthX Arabia">
+  <meta property="og:description" content="Start your AI automation journey with GrowthX Arabia.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">GrowthX Arabia</a>
+      <ul class="navbar-nav" id="navbar-nav">
+        <li><a href="index.html#services" data-translate="nav.services">Services</a></li>
+        <li><a href="case-studies.html" data-translate="nav.caseStudies">Case Studies</a></li>
+        <li><a href="blog/index.html" data-translate="nav.blog">Blog</a></li>
+        <li><a href="index.html#testimonials" data-translate="nav.testimonials">Testimonials</a></li>
+        <li><a href="index.html#faq" data-translate="nav.faq">FAQ</a></li>
+        <li><a href="index.html#contact" data-translate="nav.contact">Contact</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <button class="lang-toggle" id="lang-toggle" title="Switch Language">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </button>
+        <a href="get-started.html" class="btn btn-primary active" data-translate="nav.getStarted">Get Started</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="funnel-hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <div class="funnel-container">
+        <div class="funnel-header">
+          <h1 class="gradient-text" data-translate="funnel.title">Start Your AI Transformation</h1>
+          <p data-translate="funnel.subtitle">Complete the form below and our team will contact you within 24 hours with a custom automation strategy.</p>
+        </div>
+
+        <div class="funnel-progress">
+          <div class="funnel-step-wrapper">
+            <div class="funnel-step active" data-step="1">1</div>
+            <span class="funnel-step-label" data-translate="funnel.step1Label">Services</span>
+          </div>
+          <div class="funnel-step-wrapper">
+            <div class="funnel-step" data-step="2">2</div>
+            <span class="funnel-step-label" data-translate="funnel.step2Label">Company</span>
+          </div>
+          <div class="funnel-step-wrapper">
+            <div class="funnel-step" data-step="3">3</div>
+            <span class="funnel-step-label" data-translate="funnel.step3Label">Project</span>
+          </div>
+          <div class="funnel-step-wrapper">
+            <div class="funnel-step" data-step="4">4</div>
+            <span class="funnel-step-label" data-translate="funnel.step4Label">Contact</span>
+          </div>
+        </div>
+
+        <form id="lead-form" class="funnel-form">
+          <div class="step-content" id="step-1">
+            <div class="funnel-card">
+              <h2 data-translate="funnel.step1.title">What services are you interested in?</h2>
+              <p data-translate="funnel.step1.desc">Select all the services that match your needs</p>
+              
+              <div class="services-selection-grid">
+                <div class="service-option" data-service="workflow" onclick="toggleService(this)">
+                  <div class="service-option-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="3"></circle>
+                      <path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"></path>
+                    </svg>
+                  </div>
+                  <div class="service-option-content">
+                    <h4 data-translate="services.workflow.title">Workflow Automation</h4>
+                    <p data-translate="services.workflow.desc">Streamline operations with n8n and Make integrations</p>
+                  </div>
+                  <div class="service-option-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="service-option" data-service="chatbots" onclick="toggleService(this)">
+                  <div class="service-option-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="service-option-content">
+                    <h4 data-translate="services.chatbots.title">AI Chatbots & Agents</h4>
+                    <p data-translate="services.chatbots.desc">24/7 intelligent customer support automation</p>
+                  </div>
+                  <div class="service-option-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="service-option" data-service="crm" onclick="toggleService(this)">
+                  <div class="service-option-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                  </div>
+                  <div class="service-option-content">
+                    <h4 data-translate="services.crm.title">CRM Automation</h4>
+                    <p data-translate="services.crm.desc">GoHighLevel powered sales pipeline automation</p>
+                  </div>
+                  <div class="service-option-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="service-option" data-service="analytics" onclick="toggleService(this)">
+                  <div class="service-option-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="20" x2="18" y2="10"></line>
+                      <line x1="12" y1="20" x2="12" y2="4"></line>
+                      <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                  </div>
+                  <div class="service-option-content">
+                    <h4 data-translate="services.analytics.title">Data Analytics</h4>
+                    <p data-translate="services.analytics.desc">AI-driven business intelligence dashboards</p>
+                  </div>
+                  <div class="service-option-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="service-option" data-service="seo" onclick="toggleService(this)">
+                  <div class="service-option-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                  </div>
+                  <div class="service-option-content">
+                    <h4 data-translate="services.seo.title">AI Automated SEO</h4>
+                    <p data-translate="services.seo.desc">Intelligent search engine optimization</p>
+                  </div>
+                  <div class="service-option-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="service-option" data-service="googleAds" onclick="toggleService(this)">
+                  <div class="service-option-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                      <polyline points="17 2 12 7 7 2"></polyline>
+                    </svg>
+                  </div>
+                  <div class="service-option-content">
+                    <h4 data-translate="services.googleAds.title">AI Google Ads</h4>
+                    <p data-translate="services.googleAds.desc">Automated PPC campaign management</p>
+                  </div>
+                  <div class="service-option-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="service-option" data-service="localSeo" onclick="toggleService(this)">
+                  <div class="service-option-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="service-option-content">
+                    <h4 data-translate="services.localSeo.title">AI Local SEO</h4>
+                    <p data-translate="services.localSeo.desc">Google Business Profile optimization</p>
+                  </div>
+                  <div class="service-option-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="service-option" data-service="social" onclick="toggleService(this)">
+                  <div class="service-option-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                  <div class="service-option-content">
+                    <h4 data-translate="services.social.title">AI Social Scheduling</h4>
+                    <p data-translate="services.social.desc">Automated content planning and posting</p>
+                  </div>
+                  <div class="service-option-check">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="funnel-buttons">
+                <div></div>
+                <button type="button" class="btn btn-primary" onclick="nextStep()" data-translate="funnel.next">
+                  Next Step
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-content" id="step-2" style="display: none;">
+            <div class="funnel-card">
+              <h2 data-translate="funnel.step2.title">Tell us about your company</h2>
+              <p data-translate="funnel.step2.desc">Help us understand your business better</p>
+
+              <div class="form-group">
+                <label for="companyName" data-translate="funnel.companyName">Company Name *</label>
+                <input type="text" id="companyName" name="companyName" required placeholder="Enter your company name">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="industry" data-translate="funnel.industry">Industry *</label>
+                  <select id="industry" name="industry" required>
+                    <option value="" data-translate="funnel.selectIndustry">Select industry</option>
+                    <option value="technology" data-translate="funnel.industry.technology">Technology</option>
+                    <option value="ecommerce" data-translate="funnel.industry.ecommerce">E-commerce</option>
+                    <option value="healthcare" data-translate="funnel.industry.healthcare">Healthcare</option>
+                    <option value="realestate" data-translate="funnel.industry.realestate">Real Estate</option>
+                    <option value="finance" data-translate="funnel.industry.finance">Finance & Banking</option>
+                    <option value="hospitality" data-translate="funnel.industry.hospitality">Hospitality</option>
+                    <option value="retail" data-translate="funnel.industry.retail">Retail</option>
+                    <option value="logistics" data-translate="funnel.industry.logistics">Logistics & Shipping</option>
+                    <option value="education" data-translate="funnel.industry.education">Education</option>
+                    <option value="other" data-translate="funnel.industry.other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="companySize" data-translate="funnel.companySize">Company Size *</label>
+                  <select id="companySize" name="companySize" required>
+                    <option value="" data-translate="funnel.selectSize">Select company size</option>
+                    <option value="1-10" data-translate="funnel.size.1-10">1-10 employees</option>
+                    <option value="11-50" data-translate="funnel.size.11-50">11-50 employees</option>
+                    <option value="51-200" data-translate="funnel.size.51-200">51-200 employees</option>
+                    <option value="201-500" data-translate="funnel.size.201-500">201-500 employees</option>
+                    <option value="500+" data-translate="funnel.size.500+">500+ employees</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="website" data-translate="funnel.website">Website URL (optional)</label>
+                <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
+              </div>
+
+              <div class="funnel-buttons">
+                <button type="button" class="btn btn-outline" onclick="prevStep()" data-translate="funnel.back">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                  </svg>
+                  Back
+                </button>
+                <button type="button" class="btn btn-primary" onclick="nextStep()" data-translate="funnel.next">
+                  Next Step
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-content" id="step-3" style="display: none;">
+            <div class="funnel-card">
+              <h2 data-translate="funnel.step3.title">Project Requirements</h2>
+              <p data-translate="funnel.step3.desc">Tell us about your project scope and timeline</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="budget" data-translate="funnel.budget">Budget Range *</label>
+                  <select id="budget" name="budget" required>
+                    <option value="" data-translate="funnel.selectBudget">Select budget range</option>
+                    <option value="5k-10k" data-translate="funnel.budget.5k-10k">$5,000 - $10,000</option>
+                    <option value="10k-25k" data-translate="funnel.budget.10k-25k">$10,000 - $25,000</option>
+                    <option value="25k-50k" data-translate="funnel.budget.25k-50k">$25,000 - $50,000</option>
+                    <option value="50k-100k" data-translate="funnel.budget.50k-100k">$50,000 - $100,000</option>
+                    <option value="100k+" data-translate="funnel.budget.100k+">$100,000+</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="timeline" data-translate="funnel.timeline">Timeline *</label>
+                  <select id="timeline" name="timeline" required>
+                    <option value="" data-translate="funnel.selectTimeline">Select timeline</option>
+                    <option value="immediate" data-translate="funnel.timeline.immediate">Immediate (ASAP)</option>
+                    <option value="1-month" data-translate="funnel.timeline.1-month">Within 1 month</option>
+                    <option value="1-3-months" data-translate="funnel.timeline.1-3-months">1-3 months</option>
+                    <option value="3-6-months" data-translate="funnel.timeline.3-6-months">3-6 months</option>
+                    <option value="6-months+" data-translate="funnel.timeline.6-months+">6+ months</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="projectDescription" data-translate="funnel.projectDescription">Project Description</label>
+                <textarea id="projectDescription" name="projectDescription" rows="4" placeholder="Tell us about your project goals, challenges, and what you hope to achieve..." data-translate-placeholder="funnel.projectDescriptionPlaceholder"></textarea>
+              </div>
+
+              <div class="funnel-buttons">
+                <button type="button" class="btn btn-outline" onclick="prevStep()" data-translate="funnel.back">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                  </svg>
+                  Back
+                </button>
+                <button type="button" class="btn btn-primary" onclick="nextStep()" data-translate="funnel.next">
+                  Next Step
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-content" id="step-4" style="display: none;">
+            <div class="funnel-card">
+              <h2 data-translate="funnel.step4.title">Contact Information</h2>
+              <p data-translate="funnel.step4.desc">How can we reach you?</p>
+
+              <div class="form-group">
+                <label for="fullName" data-translate="funnel.fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email" data-translate="funnel.email">Email Address *</label>
+                  <input type="email" id="email" name="email" required placeholder="you@company.com">
+                </div>
+
+                <div class="form-group">
+                  <label for="phone" data-translate="funnel.phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="+971 50 123 4567">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label data-translate="funnel.contactMethod">Preferred Contact Method *</label>
+                <div class="contact-method-options">
+                  <label class="radio-option">
+                    <input type="radio" name="contactMethod" value="email" checked>
+                    <span class="radio-custom"></span>
+                    <span data-translate="funnel.contactMethod.email">Email</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="contactMethod" value="phone">
+                    <span class="radio-custom"></span>
+                    <span data-translate="funnel.contactMethod.phone">Phone Call</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="contactMethod" value="whatsapp">
+                    <span class="radio-custom"></span>
+                    <span data-translate="funnel.contactMethod.whatsapp">WhatsApp</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="funnel-buttons">
+                <button type="button" class="btn btn-outline" onclick="prevStep()" data-translate="funnel.back">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                  </svg>
+                  Back
+                </button>
+                <button type="submit" class="btn btn-primary btn-lg" onclick="submitLead(event)" data-translate="funnel.submit">
+                  Submit Request
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-content" id="step-success" style="display: none;">
+            <div class="funnel-card success-card">
+              <div class="success-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h2 class="gradient-text" data-translate="funnel.success.title">Thank You!</h2>
+              <p data-translate="funnel.success.message">Your request has been submitted successfully. Our team will review your information and contact you within 24 hours to discuss your AI automation journey.</p>
+              <div class="success-next-steps">
+                <h4 data-translate="funnel.success.nextSteps">What happens next?</h4>
+                <ul>
+                  <li data-translate="funnel.success.step1">Our team reviews your requirements</li>
+                  <li data-translate="funnel.success.step2">We prepare a custom automation proposal</li>
+                  <li data-translate="funnel.success.step3">Schedule your free consultation call</li>
+                </ul>
+              </div>
+              <a href="index.html" class="btn btn-primary" data-translate="funnel.success.backHome">Back to Home</a>
+            </div>
+          </div>
+        </form>
+
+        <div class="trust-section">
+          <div class="trust-badges">
+            <div class="trust-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span data-translate="funnel.trust.secure">100% Secure</span>
+            </div>
+            <div class="trust-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span data-translate="funnel.trust.response">24h Response</span>
+            </div>
+            <div class="trust-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span data-translate="funnel.trust.clients">150+ Clients</span>
+            </div>
+          </div>
+          <div class="social-proof">
+            <p data-translate="funnel.socialProof">Trusted by leading businesses across Saudi Arabia, UAE, Qatar, and the entire MENA region</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2024 GrowthX Arabia. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/971501234567" class="whatsapp-float" target="_blank" rel="noopener">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    let selectedServices = [];
+
+    function toggleService(element) {
+      const service = element.getAttribute('data-service');
+      const index = selectedServices.indexOf(service);
+      
+      if (index > -1) {
+        selectedServices.splice(index, 1);
+        element.classList.remove('selected');
+      } else {
+        selectedServices.push(service);
+        element.classList.add('selected');
+      }
+    }
+
+    function validateStep(step) {
+      if (step === 1) {
+        if (selectedServices.length === 0) {
+          alert(currentLang === 'ar' ? 'يرجى اختيار خدمة واحدة على الأقل' : 'Please select at least one service');
+          return false;
+        }
+        return true;
+      }
+      
+      if (step === 2) {
+        const companyName = document.getElementById('companyName').value;
+        const industry = document.getElementById('industry').value;
+        const companySize = document.getElementById('companySize').value;
+        
+        if (!companyName || !industry || !companySize) {
+          alert(currentLang === 'ar' ? 'يرجى ملء جميع الحقول المطلوبة' : 'Please fill in all required fields');
+          return false;
+        }
+        return true;
+      }
+      
+      if (step === 3) {
+        const budget = document.getElementById('budget').value;
+        const timeline = document.getElementById('timeline').value;
+        
+        if (!budget || !timeline) {
+          alert(currentLang === 'ar' ? 'يرجى اختيار الميزانية والجدول الزمني' : 'Please select budget and timeline');
+          return false;
+        }
+        return true;
+      }
+      
+      if (step === 4) {
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        
+        if (!fullName || !email || !phone) {
+          alert(currentLang === 'ar' ? 'يرجى ملء جميع الحقول المطلوبة' : 'Please fill in all required fields');
+          return false;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert(currentLang === 'ar' ? 'يرجى إدخال بريد إلكتروني صحيح' : 'Please enter a valid email address');
+          return false;
+        }
+        return true;
+      }
+      
+      return true;
+    }
+
+    function nextStep() {
+      if (!validateStep(currentStep)) return;
+      
+      saveStepData();
+      currentStep++;
+      updateStepUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevStep() {
+      currentStep--;
+      updateStepUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateStepUI() {
+      document.querySelectorAll('.funnel-step').forEach((step, index) => {
+        step.classList.remove('active', 'completed');
+        if (index + 1 === currentStep) {
+          step.classList.add('active');
+        } else if (index + 1 < currentStep) {
+          step.classList.add('completed');
+        }
+      });
+      
+      document.querySelectorAll('.step-content').forEach((content) => {
+        content.style.display = 'none';
+      });
+      
+      const currentStepContent = document.getElementById('step-' + currentStep);
+      if (currentStepContent) {
+        currentStepContent.style.display = 'block';
+      }
+    }
+
+    function saveStepData() {
+      leadData.services = selectedServices;
+      
+      const form = document.getElementById('lead-form');
+      const inputs = form.querySelectorAll('input, textarea, select');
+      inputs.forEach(input => {
+        if (input.name && input.type !== 'radio') {
+          leadData[input.name] = input.value;
+        } else if (input.type === 'radio' && input.checked) {
+          leadData[input.name] = input.value;
+        }
+      });
+    }
+
+    async function submitLead(e) {
+      e.preventDefault();
+      
+      if (!validateStep(4)) return;
+      
+      saveStepData();
+      
+      const submitBtn = document.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = currentLang === 'ar' ? 'جاري الإرسال...' : 'Submitting...';
+      
+      try {
+        const response = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(leadData)
+        });
+        
+        if (response.ok) {
+          document.querySelectorAll('.step-content').forEach(content => {
+            content.style.display = 'none';
+          });
+          document.getElementById('step-success').style.display = 'block';
+          document.querySelector('.funnel-progress').style.display = 'none';
+          document.querySelector('.trust-section').style.display = 'none';
+        } else {
+          throw new Error('Failed to submit');
+        }
+      } catch (error) {
+        alert(currentLang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'An error occurred. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    }
+  </script>
+</body>
+</html>

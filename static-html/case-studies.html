@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies - GrowthX Arabia | AI Automation Success Stories</title>
+  <meta name="description" content="Explore our AI automation success stories. See how businesses across the Middle East transformed their operations with GrowthX Arabia's intelligent automation solutions.">
+  <meta property="og:title" content="Case Studies - GrowthX Arabia">
+  <meta property="og:description" content="AI automation success stories from businesses across the Middle East.">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .page-hero {
+      position: relative;
+      padding: 8rem 0 4rem;
+      overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+    .page-hero-bg .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+    }
+    .page-hero-bg .blob-1 {
+      top: -20%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: hsla(196, 100%, 50%, 0.15);
+    }
+    .page-hero-bg .blob-2 {
+      bottom: -20%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: hsla(262, 83%, 58%, 0.15);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .page-hero h1 {
+        font-size: 3.5rem;
+      }
+    }
+    .page-hero p {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .case-study-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .case-study-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+    }
+    .badge-n8n {
+      background: hsla(340, 82%, 52%, 0.2);
+      color: hsl(340, 82%, 60%);
+    }
+    .badge-make {
+      background: hsla(270, 70%, 55%, 0.2);
+      color: hsl(270, 70%, 65%);
+    }
+    .badge-ghl {
+      background: hsla(142, 70%, 45%, 0.2);
+      color: hsl(142, 70%, 55%);
+    }
+    .badge-ai {
+      background: hsla(196, 100%, 50%, 0.2);
+      color: var(--primary);
+    }
+    .case-study-category {
+      font-size: 0.75rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .case-study-stats {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid hsla(217, 33%, 17%, 0.5);
+    }
+    .case-study-stat {
+      text-align: center;
+      flex: 1;
+    }
+    .case-study-stat-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .case-study-stat-label {
+      font-size: 0.7rem;
+      color: var(--muted-foreground);
+      margin-top: 0.25rem;
+    }
+    .case-study-image {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-study-image svg {
+      width: 48px;
+      height: 48px;
+      color: var(--primary);
+      opacity: 0.5;
+    }
+    .gradient-1 { background: linear-gradient(135deg, hsla(196, 100%, 50%, 0.3), hsla(262, 83%, 58%, 0.3)); }
+    .gradient-2 { background: linear-gradient(135deg, hsla(262, 83%, 58%, 0.3), hsla(340, 82%, 52%, 0.3)); }
+    .gradient-3 { background: linear-gradient(135deg, hsla(340, 82%, 52%, 0.3), hsla(30, 90%, 50%, 0.3)); }
+    .gradient-4 { background: linear-gradient(135deg, hsla(142, 70%, 45%, 0.3), hsla(196, 100%, 50%, 0.3)); }
+    .gradient-5 { background: linear-gradient(135deg, hsla(30, 90%, 50%, 0.3), hsla(60, 80%, 50%, 0.3)); }
+    .gradient-6 { background: linear-gradient(135deg, hsla(200, 80%, 50%, 0.3), hsla(220, 90%, 55%, 0.3)); }
+    .gradient-7 { background: linear-gradient(135deg, hsla(160, 70%, 40%, 0.3), hsla(180, 60%, 45%, 0.3)); }
+    .gradient-8 { background: linear-gradient(135deg, hsla(350, 80%, 50%, 0.3), hsla(10, 85%, 55%, 0.3)); }
+    .gradient-9 { background: linear-gradient(135deg, hsla(45, 90%, 50%, 0.3), hsla(65, 85%, 45%, 0.3)); }
+    .gradient-10 { background: linear-gradient(135deg, hsla(280, 70%, 50%, 0.3), hsla(300, 75%, 55%, 0.3)); }
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .case-studies-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1200px) {
+      .case-studies-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .cta-section {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, hsla(196, 100%, 50%, 0.1), hsla(262, 83%, 58%, 0.1));
+      border-radius: var(--radius);
+      margin-top: 3rem;
+    }
+    .cta-section h2 {
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      color: var(--muted-foreground);
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">GrowthX Arabia</a>
+      <ul class="navbar-nav" id="navbar-nav">
+        <li><a href="index.html#services" data-translate="nav.services">Services</a></li>
+        <li><a href="case-studies.html" data-translate="nav.caseStudies">Case Studies</a></li>
+        <li><a href="blog/index.html" data-translate="nav.blog">Blog</a></li>
+        <li><a href="index.html#testimonials" data-translate="nav.testimonials">Testimonials</a></li>
+        <li><a href="index.html#faq" data-translate="nav.faq">FAQ</a></li>
+        <li><a href="index.html#contact" data-translate="nav.contact">Contact</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <button class="lang-toggle" id="lang-toggle" title="Switch Language">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </button>
+        <a href="get-started.html" class="btn btn-primary" data-translate="nav.getStarted">Get Started</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <div class="page-hero-content">
+        <h1 class="gradient-text" data-translate="caseStudies.title">Our Success Stories</h1>
+        <p data-translate="caseStudies.subtitle">Discover how we've helped businesses across the Middle East transform their operations with AI-powered automation solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="case-studies-grid">
+
+        <div class="case-study-card" data-testid="case-study-techstart">
+          <div class="case-study-image gradient-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-ai">AI</span>
+              <span class="case-study-badge badge-n8n">n8n</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.1.category">Technology Startup</div>
+            <h3 data-translate="caseStudy.1.title">TechStart Saudi</h3>
+            <p data-translate="caseStudy.1.description">Implemented an AI-powered chatbot that handles 80% of customer inquiries automatically, reducing response time from hours to seconds.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">80%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.1.stat1">Auto-resolved</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">24/7</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.1.stat2">Availability</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-gulf-logistics">
+          <div class="case-study-image gradient-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"></path>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-n8n">n8n</span>
+              <span class="case-study-badge badge-make">Make</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.2.category">Logistics & Shipping</div>
+            <h3 data-translate="caseStudy.2.title">Gulf Logistics</h3>
+            <p data-translate="caseStudy.2.description">Automated order processing, tracking updates, and customer notifications across 12 regional warehouses with seamless workflow integration.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">85%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.2.stat1">Time Saved</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">50%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.2.stat2">Error Reduction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-dubai-retail">
+          <div class="case-study-image gradient-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-ai">AI</span>
+              <span class="case-study-badge badge-make">Make</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.3.category">Retail & E-commerce</div>
+            <h3 data-translate="caseStudy.3.title">Dubai Retail Group</h3>
+            <p data-translate="caseStudy.3.description">AI-driven SEO optimization increased organic traffic by 200% through automated content optimization and Arabic keyword targeting.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">200%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.3.stat1">Traffic Growth</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">150%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.3.stat2">Revenue Increase</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-bahrain-properties">
+          <div class="case-study-image gradient-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-ghl">GoHighLevel</span>
+              <span class="case-study-badge badge-ai">AI</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.4.category">Real Estate</div>
+            <h3 data-translate="caseStudy.4.title">Bahrain Properties</h3>
+            <p data-translate="caseStudy.4.description">Automated CRM pipeline manages 500+ leads monthly with AI-powered lead scoring, automated follow-ups, and appointment scheduling.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">60%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.4.stat1">More Leads</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">3x</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.4.stat2">Conversion Rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-kuwait-finance">
+          <div class="case-study-image gradient-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-ai">AI</span>
+              <span class="case-study-badge badge-n8n">n8n</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.5.category">Financial Services</div>
+            <h3 data-translate="caseStudy.5.title">Kuwait Finance Corp</h3>
+            <p data-translate="caseStudy.5.description">AI-powered analytics dashboard provides real-time insights across 15 data sources, enabling faster decision-making and risk assessment.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">90%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.5.stat1">Faster Reports</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">40%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.5.stat2">Cost Savings</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-oman-hospitality">
+          <div class="case-study-image gradient-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-make">Make</span>
+              <span class="case-study-badge badge-ai">AI</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.6.category">Hospitality</div>
+            <h3 data-translate="caseStudy.6.title">Oman Hospitality</h3>
+            <p data-translate="caseStudy.6.description">Automated social media management across 5 hotel brands with AI content generation, scheduling, and engagement tracking.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">300%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.6.stat1">Engagement Up</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">20hrs</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.6.stat2">Weekly Saved</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-qatar-medical">
+          <div class="case-study-image gradient-7">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <line x1="19" y1="8" x2="19" y2="14"></line>
+              <line x1="22" y1="11" x2="16" y2="11"></line>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-ghl">GoHighLevel</span>
+              <span class="case-study-badge badge-n8n">n8n</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.7.category">Healthcare</div>
+            <h3 data-translate="caseStudy.7.title">Qatar Medical</h3>
+            <p data-translate="caseStudy.7.description">Automated lead generation and patient intake system with appointment booking, reminders, and follow-up sequences.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">75%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.7.stat1">More Bookings</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">90%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.7.stat2">Show-up Rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-riyadh-realestate">
+          <div class="case-study-image gradient-8">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+              <polyline points="17 2 12 7 7 2"></polyline>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-ai">AI</span>
+              <span class="case-study-badge badge-make">Make</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.8.category">Real Estate</div>
+            <h3 data-translate="caseStudy.8.title">Riyadh Real Estate</h3>
+            <p data-translate="caseStudy.8.description">AI-optimized Google Ads campaigns with automated bidding, ad copy generation, and performance tracking across Arabic and English markets.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">45%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.8.stat1">Lower CPA</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">2.5x</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.8.stat2">ROAS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-abudhabi-trading">
+          <div class="case-study-image gradient-9">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-ai">AI</span>
+              <span class="case-study-badge badge-n8n">n8n</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.9.category">Trading & Import</div>
+            <h3 data-translate="caseStudy.9.title">Abu Dhabi Trading</h3>
+            <p data-translate="caseStudy.9.description">Local SEO automation for 25 store locations with automated Google Business Profile management and review response system.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">180%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.9.stat1">Local Visibility</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">4.8★</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.9.stat2">Avg. Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study-card" data-testid="case-study-jeddah-ecommerce">
+          <div class="case-study-image gradient-10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+          </div>
+          <div class="case-study-content">
+            <div class="case-study-badges">
+              <span class="case-study-badge badge-n8n">n8n</span>
+              <span class="case-study-badge badge-make">Make</span>
+              <span class="case-study-badge badge-ghl">GoHighLevel</span>
+              <span class="case-study-badge badge-ai">AI</span>
+            </div>
+            <div class="case-study-category" data-translate="caseStudy.10.category">E-commerce</div>
+            <h3 data-translate="caseStudy.10.title">Jeddah E-commerce</h3>
+            <p data-translate="caseStudy.10.description">Full-stack automation connecting inventory, orders, customer service, marketing, and analytics into one unified intelligent system.</p>
+            <div class="case-study-stats">
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">95%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.10.stat1">Automated</div>
+              </div>
+              <div class="case-study-stat">
+                <div class="case-study-stat-value">400%</div>
+                <div class="case-study-stat-label" data-translate="caseStudy.10.stat2">Growth</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta-section">
+        <h2 class="gradient-text" data-translate="caseStudies.cta.title">Ready to Be Our Next Success Story?</h2>
+        <p data-translate="caseStudies.cta.description">Book a free consultation and discover how AI automation can transform your business.</p>
+        <a href="get-started.html" class="btn btn-primary btn-lg" data-translate="caseStudies.cta.button">
+          Start Your Transformation
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="navbar-brand">GrowthX Arabia</a>
+          <p data-translate="footer.description">Empowering MENA businesses with intelligent AI automation solutions. Transform your operations, scale faster, and stay ahead of the competition.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 data-translate="footer.company">Company</h4>
+          <ul>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 data-translate="footer.services">Services</h4>
+          <ul>
+            <li><a href="services/workflow-automation.html">Workflow Automation</a></li>
+            <li><a href="services/ai-chatbots.html">AI Chatbots</a></li>
+            <li><a href="services/crm-automation.html">CRM Automation</a></li>
+            <li><a href="services/ai-seo.html">AI SEO</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 data-translate="footer.legal">Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 GrowthX Arabia. All rights reserved.</p>
+        <p>Made with ❤️ in the Middle East</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
