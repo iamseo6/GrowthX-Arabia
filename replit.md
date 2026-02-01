@@ -20,9 +20,10 @@ Preferred communication style: Simple, everyday language.
 
 The frontend follows a component-based architecture with:
 - `pages/` - Route-level components (Home, Admin, Auth, legal pages, ServiceDetail)
-- `components/sections/` - Landing page sections (Hero, Services, Process, etc.)
+- `components/sections/` - Landing page sections (Hero, Services, Process, Testimonials, FAQ, etc.)
 - `components/layout/` - Shared layout components (Navbar, Footer)
 - `components/ui/` - Reusable shadcn/ui components
+- `components/ExitIntentPopup.tsx` - Exit-intent popup for lead generation
 - `lib/language-context.tsx` - Internationalization context provider with English/Arabic translations
 - `lib/services-data.ts` - Service detail page data with full English/Arabic content
 
@@ -47,6 +48,40 @@ Blog pages accessible at `/blog` and `/blog/:slug`:
   2. 5 Workflow Automations Every Business Should Implement in 2024
   3. The Ultimate Guide to AI-Powered SEO for Arabic Markets
 - **Features**: Related posts section, category badges, reading time, author info
+
+### Homepage Sections
+The homepage includes the following sections in order:
+1. **Hero** - Main call-to-action with AI automation messaging
+2. **Services** - 8 service cards with links to detail pages
+3. **Process** - How it works workflow
+4. **CaseStudies** - Preview of success stories
+5. **Testimonials** - 6 client testimonials with 5-star ratings
+6. **About** - Company information
+7. **Features** - Key platform features
+8. **FAQ** - 8 bilingual questions with accordion UI
+9. **Contact** - Contact form
+
+### Case Studies Page
+Accessible at `/case-studies`:
+- 10 detailed case studies with bilingual content
+- Platform badges (n8n, Make, GoHighLevel, AI)
+- Client names, categories, and descriptions
+- Stats showing measurable results
+- Featured images for each case study
+
+### Exit-Intent Popup
+- Triggers when mouse leaves viewport (top edge)
+- Fallback trigger after 30 seconds on page
+- Uses localStorage to prevent re-showing after dismissal
+- Offers free consultation CTA linking to /get-started
+- Bilingual support (English/Arabic)
+
+### Admin Dashboard Features
+- Dashboard stats cards showing totals for leads, contacts, and newsletter subscribers
+- Leads management with full submission details
+- Contact submissions viewer
+- Newsletter subscribers with delete functionality
+- All tables include timestamps and relevant metadata
 
 ### Lead Generation Funnel
 Multi-step lead capture form at `/get-started`:
@@ -73,6 +108,8 @@ Key API endpoints:
 - `POST /api/contact` - Submit contact form (public)
 - `GET /api/contact` - Retrieve submissions (authenticated)
 - `POST /api/newsletter` - Newsletter signup (public)
+- `GET /api/newsletter` - Retrieve subscribers (authenticated)
+- `DELETE /api/newsletter/:id` - Delete subscriber (authenticated)
 - `POST /api/leads` - Submit lead funnel form (public)
 - `GET /api/leads` - Retrieve leads (authenticated)
 - `POST /api/login` / `POST /api/logout` - Authentication
