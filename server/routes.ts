@@ -146,5 +146,50 @@ export async function registerRoutes(
     }
   });
 
+  // XML Sitemap
+  app.get("/sitemap.xml", (_req, res) => {
+    const baseUrl = process.env.REPLIT_DEV_DOMAIN 
+      ? `https://${process.env.REPLIT_DEV_DOMAIN}`
+      : process.env.REPLIT_DEPLOYMENT_URL || "https://growthxarabia.replit.app";
+    
+    const pages = [
+      { url: "/", priority: "1.0", changefreq: "weekly" },
+      { url: "/services", priority: "0.9", changefreq: "weekly" },
+      { url: "/services/workflow-automation", priority: "0.8", changefreq: "monthly" },
+      { url: "/services/ai-chatbots", priority: "0.8", changefreq: "monthly" },
+      { url: "/services/crm-automation", priority: "0.8", changefreq: "monthly" },
+      { url: "/services/data-analytics", priority: "0.8", changefreq: "monthly" },
+      { url: "/services/ai-seo", priority: "0.8", changefreq: "monthly" },
+      { url: "/services/ai-google-ads", priority: "0.8", changefreq: "monthly" },
+      { url: "/services/ai-local-seo", priority: "0.8", changefreq: "monthly" },
+      { url: "/services/ai-social-scheduling", priority: "0.8", changefreq: "monthly" },
+      { url: "/case-studies", priority: "0.8", changefreq: "weekly" },
+      { url: "/blog", priority: "0.8", changefreq: "weekly" },
+      { url: "/blog/ai-automation-transforming-middle-east-business", priority: "0.7", changefreq: "monthly" },
+      { url: "/blog/5-workflow-automations-every-business-needs", priority: "0.7", changefreq: "monthly" },
+      { url: "/blog/ultimate-guide-ai-seo-arabic-markets", priority: "0.7", changefreq: "monthly" },
+      { url: "/get-started", priority: "0.9", changefreq: "monthly" },
+      { url: "/privacy-policy", priority: "0.3", changefreq: "yearly" },
+      { url: "/terms-of-service", priority: "0.3", changefreq: "yearly" },
+      { url: "/cookie-policy", priority: "0.3", changefreq: "yearly" },
+      { url: "/sitemap", priority: "0.5", changefreq: "monthly" },
+    ];
+
+    const today = new Date().toISOString().split("T")[0];
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(page => `  <url>
+    <loc>${baseUrl}${page.url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join("\n")}
+</urlset>`;
+
+    res.header("Content-Type", "application/xml");
+    res.send(xml);
+  });
+
   return httpServer;
 }
