@@ -130,7 +130,7 @@ export function Footer() {
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/growthx-arabia", label: "LinkedIn" },
     { icon: Instagram, href: "https://instagram.com/growthxarabia", label: "Instagram" },
   ];
 
