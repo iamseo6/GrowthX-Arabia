@@ -131,7 +131,7 @@ export function Footer() {
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Instagram, href: "https://instagram.com/growthxarabia", label: "Instagram" },
   ];
 
   return (
