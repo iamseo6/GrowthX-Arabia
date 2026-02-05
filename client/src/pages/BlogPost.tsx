@@ -23,11 +23,13 @@ import { NewsletterPopup } from "@/components/NewsletterPopup";
 import blogAiMiddleEast from "@/assets/images/blog-ai-middle-east.png";
 import blogWorkflowAutomation from "@/assets/images/blog-workflow-automation.png";
 import blogAiSeoArabic from "@/assets/images/blog-ai-seo-arabic.png";
+import blogAiSeoCompleteGuide from "@/assets/images/blog-ai-seo-complete-guide.png";
 
 const imageMap: Record<string, string> = {
   "blog-ai-middle-east": blogAiMiddleEast,
   "blog-workflow-automation": blogWorkflowAutomation,
   "blog-ai-seo-arabic": blogAiSeoArabic,
+  "blog-ai-seo-complete-guide": blogAiSeoCompleteGuide,
 };
 
 export default function BlogPost() {
