@@ -1,6 +1,17 @@
 // GrowthX Arabia - Main JavaScript
 const API_BASE = '/api';
 
+// Security: Escape HTML to prevent XSS
+function escapeHtml(unsafe) {
+  if (unsafe == null) return '';
+  return String(unsafe)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 // Language translations
 const translations = {
   en: {
@@ -780,10 +791,10 @@ function renderTable() {
           <tbody>
             ${adminData.leads.map(lead => `
               <tr>
-                <td>${lead.serviceInterest || '-'}</td>
-                <td>${lead.fullName || '-'}</td>
-                <td>${lead.email || '-'}</td>
-                <td>${lead.companyName || '-'}</td>
+                <td>${escapeHtml(lead.serviceInterest) || '-'}</td>
+                <td>${escapeHtml(lead.fullName) || '-'}</td>
+                <td>${escapeHtml(lead.email) || '-'}</td>
+                <td>${escapeHtml(lead.companyName) || '-'}</td>
                 <td>${new Date(lead.createdAt).toLocaleDateString()}</td>
               </tr>
             `).join('')}
@@ -806,10 +817,10 @@ function renderTable() {
           <tbody>
             ${adminData.contacts.map(contact => `
               <tr>
-                <td>${contact.name}</td>
-                <td>${contact.email}</td>
-                <td>${contact.company || '-'}</td>
-                <td>${contact.message.substring(0, 50)}...</td>
+                <td>${escapeHtml(contact.name)}</td>
+                <td>${escapeHtml(contact.email)}</td>
+                <td>${escapeHtml(contact.company) || '-'}</td>
+                <td>${escapeHtml(contact.message.substring(0, 50))}...</td>
                 <td>${new Date(contact.createdAt).toLocaleDateString()}</td>
               </tr>
             `).join('')}
@@ -830,7 +841,7 @@ function renderTable() {
           <tbody>
             ${adminData.newsletters.map(sub => `
               <tr>
-                <td>${sub.email}</td>
+                <td>${escapeHtml(sub.email)}</td>
                 <td>${new Date(sub.subscribedAt).toLocaleDateString()}</td>
                 <td><button class="btn btn-outline" onclick="deleteNewsletter(${sub.id})">Delete</button></td>
               </tr>
