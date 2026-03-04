@@ -63,13 +63,16 @@ app.use((req, res, next) => {
   
   if (adminUsername && adminPassword) {
     const existingAdmin = await storage.getUserByUsername(adminUsername);
+    const hashedPassword = await bcrypt.hash(adminPassword, 10);
     if (!existingAdmin) {
-      const hashedPassword = await bcrypt.hash(adminPassword, 10);
       await storage.createUser({
         username: adminUsername,
         password: hashedPassword,
       });
       log(`Admin user '${adminUsername}' created.`);
+    } else {
+      await storage.updateUser(existingAdmin.id, { password: hashedPassword });
+      log(`Admin user '${adminUsername}' password updated.`);
     }
   }
 
