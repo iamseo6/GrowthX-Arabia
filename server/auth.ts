@@ -16,14 +16,24 @@ declare global {
 
 import { type User as SelectUser } from "@shared/schema";
 
-export function setupAuth(app: express.Express) {
+export async function setupAuth(app: express.Express) {
   const PostgresStore = connectPgSimple(session);
+
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS "session" (
+      "sid" varchar NOT NULL COLLATE "default",
+      "sess" json NOT NULL,
+      "expire" timestamp(6) NOT NULL,
+      CONSTRAINT "session_pkey" PRIMARY KEY ("sid")
+    ) WITH (OIDS=FALSE);
+    CREATE INDEX IF NOT EXISTS "IDX_session_expire" ON "session" ("expire");
+  `);
 
   app.use(
     session({
       store: new PostgresStore({
         pool,
-        createTableIfMissing: true,
+        tableName: "session",
       }),
       secret: process.env.SESSION_SECRET || "growthx-secret",
       resave: false,

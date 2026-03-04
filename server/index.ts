@@ -14,8 +14,6 @@ app.set("trust proxy", 1);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-setupAuth(app);
-
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
@@ -54,6 +52,7 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  await setupAuth(app);
   const httpServer = createServer(app);
   await registerRoutes(httpServer, app);
 
