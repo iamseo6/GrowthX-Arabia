@@ -6,7 +6,8 @@ import bcrypt from "bcryptjs";
 import connectPgSimple from "connect-pg-simple";
 import { storage } from "./storage";
 import { type User } from "@shared/schema";
-import { pool } from "./db";
+import { db, pool } from "./db";
+import { sql } from "drizzle-orm";
 
 declare global {
   namespace Express {
@@ -19,14 +20,16 @@ import { type User as SelectUser } from "@shared/schema";
 export async function setupAuth(app: express.Express) {
   const PostgresStore = connectPgSimple(session);
 
-  await pool.query(`
+  await db.execute(sql`
     CREATE TABLE IF NOT EXISTS "session" (
       "sid" varchar NOT NULL COLLATE "default",
       "sess" json NOT NULL,
       "expire" timestamp(6) NOT NULL,
       CONSTRAINT "session_pkey" PRIMARY KEY ("sid")
-    ) WITH (OIDS=FALSE);
-    CREATE INDEX IF NOT EXISTS "IDX_session_expire" ON "session" ("expire");
+    ) WITH (OIDS=FALSE)
+  `);
+  await db.execute(sql`
+    CREATE INDEX IF NOT EXISTS "IDX_session_expire" ON "session" ("expire")
   `);
 
   app.use(
