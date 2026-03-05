@@ -1,13 +1,28 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Menu, X, Globe } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useLanguage } from "@/lib/language-context";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t, isRTL } = useLanguage();
+  const [location, setLocation] = useLocation();
+
+  const handleHashClick = useCallback((e: React.MouseEvent, hash: string) => {
+    e.preventDefault();
+    if (location !== "/") {
+      setLocation("/" + hash);
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location, setLocation]);
 
   const navItems = [
     { key: "nav.services", href: "/services" },
@@ -46,6 +61,7 @@ export function Navbar() {
                 href={item.href}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 data-testid={`nav-${item.key}`}
+                onClick={(e) => handleHashClick(e, item.href)}
               >
                 {t(item.key)}
               </a>
@@ -102,7 +118,7 @@ export function Navbar() {
                   key={item.key} 
                   href={item.href}
                   className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => { handleHashClick(e, item.href); setIsOpen(false); }}
                 >
                   {t(item.key)}
                 </a>
