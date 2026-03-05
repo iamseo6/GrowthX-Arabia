@@ -843,7 +843,7 @@ function renderTable() {
               <tr>
                 <td>${escapeHtml(sub.email)}</td>
                 <td>${new Date(sub.subscribedAt).toLocaleDateString()}</td>
-                <td><button class="btn btn-outline" onclick="deleteNewsletter(${sub.id})">Delete</button></td>
+                <td><button class="btn btn-outline" onclick="deleteNewsletter(${parseInt(sub.id, 10)})">Delete</button></td>
               </tr>
             `).join('')}
           </tbody>
