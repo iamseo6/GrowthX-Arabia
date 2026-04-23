@@ -57,3 +57,7 @@ expertMode = true
 ADMIN_USERNAME = "GrowthXadmin"
 ADMIN_PASSWORD = "Z7!qM9@Lr#4F^Kp2"
 NOTIFICATION_EMAIL = "rami.kadri@gmail.com"
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 20000
